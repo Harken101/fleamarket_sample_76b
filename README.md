@@ -73,7 +73,7 @@ belongs_to :user
 |name|string|null: false|
 |ancestry|string|
 ### Association
-has_many :items
+- has_many :items
 
 <!-- prefecturesモデルはある。gem  active hash-->
 
@@ -82,7 +82,7 @@ has_many :items
 |------|----|-------|
 |ship_price|string|null: false|
 ### Association
-has_many :items
+- has_many :items
 
 ## imagesテーブル
 |Column|Type|Options|
@@ -90,4 +90,4 @@ has_many :items
 |image_url|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
-belongs_to :item
+- belongs_to :item
