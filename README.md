@@ -82,9 +82,9 @@ belongs_to :user
 |------|----|-------|
 |ship_price|string|null: false|
 ### Association
-- has_many :items
+- has_many :items, dependent: :destroy
 
-## imagesテーブル
+## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |image_url|string|null: false|
