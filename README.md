@@ -1,5 +1,5 @@
 -#frima sample DB設計
-## useresテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false|
