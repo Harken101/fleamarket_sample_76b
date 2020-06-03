@@ -28,6 +28,7 @@
 |street|string|null: false|
 |mansion|string|
 |tell|string|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :prefecture
