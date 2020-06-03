@@ -50,6 +50,7 @@ belongs_to :user
 |price|integer|null: false|
 |payer|string|null: false|
 |preday|integer|null: false|
+|sold|integer|
 |category_id|integer|null: false, foreign_key: true|
 |postage_typ_id|integer|null: false, foreign_key: true|
 |prefecture_id|integer|null: false, foreign_key: true|
@@ -64,6 +65,7 @@ belongs_to :user
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|ancestry|string|
 ### Association
 has_many :items
 
