@@ -1,5 +1,5 @@
 -#frima sample DB設計
-## userテーブル
+## useresテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false|
@@ -11,24 +11,11 @@
 |furiganafamilyname|string|null: false|
 |furiganafirstname|string|null: false|
 ### Association
-- has_many :item
-- has_many :address
+- has_many :items
+- has_many :addresses
 - has_many :cards
 
-## itemテーブル
-|Column|Type|Options|
-|------|----|-------|
-|image|string|null: false|
-|name|string|null: false|
-|description|text|null: false|
-|status|string|null: false|
-|price|integer|null: false|
-### Association
-belongs_to :user
-belongs_to :category
-has_many :images
- 
-## addressテーブル
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |familyname|string|null: false|
@@ -36,13 +23,15 @@ has_many :images
 |furiganafamilyname|string|null: false|
 |furiganafirstname|string|null: false|
 |zipcode|string|null: false|
-|prefecture|string|null: false|
+|prefecture_id|integer|null: false, foreign_key: true|
 |city|string|null: false|
 |street|string|null: false|
 |mansion|string|
 |tell|string|
 ### Association
 belongs_to :user
+belongs_to :prefecture
+
 
 ## carsテーブル
 |Column|Type|Options|
@@ -51,12 +40,47 @@ belongs_to :user
 ### Association
 belongs_to :user
 
-## categoryテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|
+|image|string|null: false|
+|name|string|null: false|
+|description|text|null: false|
+|status|string|null: false|
+|price|integer|null: false|
+|payer|string|null: false|
+|preday|integer|null: false|
+|category_id|integer|null: false, foreign_key: true|
+|postage_typ_id|integer|null: false, foreign_key: true|
+|prefecture_id|integer|null: false, foreign_key: true|
 ### Association
-has_many :item
+- belongs_to :user
+- belongs_to :category
+- belongs_to :postage_types
+- belongs_to :shipping
+- has_many :images
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+### Association
+has_many :items
+
+## prefecturesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+### Association
+has_many :items
+has_many :addresses
+
+## postage_typesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|ship_price|string|null: false|
+### Association
+has_many :items
 
 ## imagesテーブル
 |Column|Type|Options|
