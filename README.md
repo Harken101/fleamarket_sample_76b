@@ -46,7 +46,6 @@ belongs_to :user
 ## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
 |name|string|null: false|
 |description|text|null: false|
 |status|integer|null: false| <!-- enumを使う -->
@@ -57,6 +56,7 @@ belongs_to :user
 |category_id|integer|null: false, foreign_key: true|
 |postage_typ_id|integer|null: false, foreign_key: true|
 |prefecture|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -86,7 +86,7 @@ has_many :items
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_url|string|
+|image_url|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 belongs_to :item
