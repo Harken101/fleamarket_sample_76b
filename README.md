@@ -46,10 +46,10 @@ belongs_to :user
 |image|string|null: false|
 |name|string|null: false|
 |description|text|null: false|
-|status|string|null: false|
+|status|integer|null: false| <!-- enumを使う -->
 |price|integer|null: false|
-|payer|string|null: false|
-|preday|integer|null: false|
+|payer|integer|null: false| <!-- enumを使う -->
+|preday|integer|null: false| <!-- enumを使う -->
 |sold|integer|
 |category_id|integer|null: false, foreign_key: true|
 |postage_typ_id|integer|null: false, foreign_key: true|
