@@ -1,0 +1,37 @@
+-# .header
+-#   .header__inner
+-#     .header__inner__mainheader
+-#       = image_tag "/logo2.png", size: "150x55", alt: "test", class: "homebtn"
+-#       .header__inner__mainheader__searchbox
+-#         = form_with url: '#' do |form|
+-#           = form.text_field :content, class: 'inputbox__text', placeholder: 'キーワード検索'
+-#           = form.submit :検索, class: 'serchbutton'
+
+-#     .header__inner__nav
+-#       %ul(class="listsleft")
+-#         %li(class="listsleft__item")
+-#           %a(href="#" class="catbtn")カテゴリー
+-#         %li(class="listsleft__item2")
+-#           %a(href="#" class="brandbtn")ブランド
+      
+-#       %ul(class="listsright")
+-#         %li(class="listsright__item")
+-#           %a(href="#")ログイン
+-#         %li(class="listsright__item2")
+-#           %a(href="#")新規会員登録
+
+.main
+  .main__visual
+    .main__visual__content
+      %h2(class="content__subtitle")人生を変えるフリマアプリ
+      %p(class="content__text")
+        FURIMAは誰でも簡単に出品・購入できる
+        %br
+        フリマアプリです。
+      .main__visual__content__btn
+        = link_to image_tag(src= "/appstore.png", class: "abtn"), "#"
+        = link_to image_tag(src= "/googleplay.png", class: "gbtn"), "#"
+
+.appbanner
+
+.footer
