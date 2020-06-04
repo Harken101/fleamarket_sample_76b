@@ -31,7 +31,6 @@
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- belongs_to :prefecture
 - belongs_to_active_hash :prefecture
 
 ## cardsテーブル
