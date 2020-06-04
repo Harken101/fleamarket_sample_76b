@@ -47,6 +47,8 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
   gem 'capistrano-rails-console'
+  # test用RSpec
+  gem 'rspec-rails'
 end
 
 group :development do
