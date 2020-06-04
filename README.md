@@ -62,7 +62,6 @@ belongs_to :user
 - belongs_to :user
 - belongs_to :category
 - belongs_to :postage_typ
-- belongs_to :shipping
 - has_many :item_images
 - belongs_to_active_hash :prefecture
 
