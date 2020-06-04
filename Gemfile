@@ -79,3 +79,4 @@ end
 #haml導入
 gem 'haml-rails'
 
+aaaaa
