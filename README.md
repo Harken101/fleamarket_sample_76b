@@ -53,7 +53,7 @@ belongs_to :user
 |price|integer|null: false|
 |payer|integer|null: false| <!-- enumを使う -->
 |preday|integer|null: false| <!-- enumを使う -->
-|sold|integer|
+|sold|boolean|default: true, null: false|
 |category_id|integer|null: false, foreign_key: true|
 |postage_typ_id|integer|null: false, foreign_key: true|
 |prefecture|integer|null: false|
