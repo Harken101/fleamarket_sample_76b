@@ -1,67 +1,83 @@
 -#frima sample DB設計
-## userテーブル
+## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |email|string|null: false|
 |pass|string|null: false|
-|nicname|string|null: false|
+|nickname|string|null: false|
 |birthday|date|null: false|
-|familyname|string|null: false|
-|firstname|string|null: false|
-|furiganafamilyname|string|null: false|
-|furiganafirstname|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|furigana_family_name|string|null: false|
+|furigana_first_name|string|null: false|
 ### Association
-- has_many :item
-- has_many :address
-- has_many :cards
-
-## itemテーブル
+- has_many :items dependent: :destroy
+- has_many :addresses, dependent: :destroy
+- has_many :cards, dependent: :destroy
+## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
-|name|string|null: false|
-|description|text|null: false|
-|status|string|null: false|
-|price|integer|null: false|
-### Association
-belongs_to :user
-belongs_to :category
-has_many :images
- 
-## addressテーブル
-|Column|Type|Options|
-|------|----|-------|
-|familyname|string|null: false|
-|firstname|string|null: false|
-|furiganafamilyname|string|null: false|
-|furiganafirstname|string|null: false|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|furigana_family_name|string|null: false|
+|furigana_first_name|string|null: false|
 |zipcode|string|null: false|
-|prefecture|string|null: false|
+|prefecture|integer|null: false|
 |city|string|null: false|
 |street|string|null: false|
 |mansion|string|
 |tell|string|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
-belongs_to :user
-
-## carsテーブル
+- belongs_to :user
+- belongs_to_active_hash :prefecture
+## cardsテーブル
+<!-- gem Payjpを使う -->
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 belongs_to :user
-
-## categoryテーブル
+## itemsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|
+|name|string|null: false|
+|description|text|null: false|
+|status|integer|null: false| <!-- enumを使う -->
+|price|integer|null: false|
+|payer|integer|null: false| <!-- enumを使う -->
+|preday|integer|null: false| <!-- enumを使う -->
+|sold|boolean|default: true, null: false|
+|category_id|integer|null: false, foreign_key: true|
+|postage_typ_id|integer|null: false, foreign_key: true|
+|prefecture|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 ### Association
-has_many :item
-
-## imagesテーブル
+- belongs_to :user
+- belongs_to :category
+- belongs_to :postage_typ
+- has_many :item_images
+- belongs_to_active_hash :prefecture
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_url|string|
+|name|string|null: false|
+|ancestry|string|
+### Association
+- has_many :items
+<!-- prefecturesモデルはある。gem  active hash-->
+## postage_typesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|ship_price|string|null: false|
+### Association
+- has_many :items, dependent: :destroy
+## item_imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|image_url|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
-belongs_to :item
+- belongs_to :item
