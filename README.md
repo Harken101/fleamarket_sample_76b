@@ -11,9 +11,9 @@
 |furigana_family_name|string|null: false|
 |furigana_first_name|string|null: false|
 ### Association
-- has_many :items
-- has_many :addresses
-- has_many :cards
+- has_many :items dependent: :destroy
+- has_many :addresses, dependent: :destroy
+- has_many :cards, dependent: :destroy
 
 ## addressesテーブル
 |Column|Type|Options|
@@ -62,9 +62,9 @@ belongs_to :user
 ### Association
 - belongs_to :user
 - belongs_to :category
-- belongs_to :postage_types
+- belongs_to :postage_typ
 - belongs_to :shipping
-- has_many :images
+- has_many :item_images
 - belongs_to_active_hash :prefecture
 
 ## categoriesテーブル
