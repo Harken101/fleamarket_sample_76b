@@ -84,3 +84,12 @@ gem 'devise'
 
 #アイコン画像
 gem 'font-awesome-sass'
+
+#payjp
+gem 'payjp'
+
+#カテゴリーわけ
+gem 'ancestry'
+
+# 都道府県
+gem 'active_hash'
