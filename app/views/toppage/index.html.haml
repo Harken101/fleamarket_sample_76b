@@ -1,25 +1,3 @@
--# .header
--#   .header__inner
--#     .header__inner__mainheader
--#       = image_tag "/logo2.png", size: "150x55", alt: "test", class: "homebtn"
--#       .header__inner__mainheader__searchbox
--#         = form_with url: '#' do |form|
--#           = form.text_field :content, class: 'inputbox__text', placeholder: 'キーワード検索'
--#           = form.submit :検索, class: 'serchbutton'
-
--#     .header__inner__nav
--#       %ul(class="listsleft")
--#         %li(class="listsleft__item")
--#           %a(href="#" class="catbtn")カテゴリー
--#         %li(class="listsleft__item2")
--#           %a(href="#" class="brandbtn")ブランド
-      
--#       %ul(class="listsright")
--#         %li(class="listsright__item")
--#           %a(href="#")ログイン
--#         %li(class="listsright__item2")
--#           %a(href="#")新規会員登録
-
 .main
   .main__visual
     .main__visual__content
@@ -29,9 +7,72 @@
         %br
         フリマアプリです。
       .main__visual__content__btn
-        = link_to image_tag(src= "/appstore.png", class: "abtn"), "#"
+        = link_to image_tag(src= "/appstore.png", class: "abtn"), "#", class: "alink"
         = link_to image_tag(src= "/googleplay.png", class: "gbtn"), "#"
+  
+  .main__topintro
+    %h2(class="subtitle")FRIMAが選ばれる3つの理由
+    %ul(class="lists")
+      %li(class="list")
+        .main__topintro__pict
+          %span(class="number")1
+          = image_tag "/select1.jpg", size: "250x290"
+        %h3(class="list__text")
+          %span 3分
+          ですぐに出品！
+        %p(class="list__description")スマホで入力するだけで簡単に出品できる！
+      %li(class="list")
+        .main__topintro__pict
+          %span(class="number")2
+          = image_tag "/select2.jpg", size: "250x290"
+        %h3(class="list__text")
+          %span シンプル
+          で使いやすい！
+        %p(class="list__description")めんどくさい入力は必要なく、検索も購入もスムーズ！
+      %li(class="list")
+        .main__topintro__pict
+          %span(class="number")3
+          = image_tag "/select3.jpg", size: "250x290"
+        %h3(class="list__text")
+          手数料
+          %span 業界最安
+        %p(class="list__description")最大3%でお得に出品&購入！
 
+  .main__middle
+    .main__middle__content
+      %h2(class="subtitle")会員数日本一位
+      %p(class="text")
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+      .main__visual__content__btn
+        = link_to image_tag(src= "/appstore.png", class: "abtn"), "#", class: "alink"
+        = link_to image_tag(src= "/googleplay.png", class: "gbtn"), "#"
+  
+  .main__charactor
+    %h2(class="headtitle")FURIMAの特徴
+    %ul(class="lists2")
+      %li(class="list2")
+        .main__charactor__pict
+          = image_tag "/man1.svg", size: "250x320"
+        %h3(class="list2__text")簡単に売り買いできる
+        %p(class="list2__description")スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %li(class="list2")
+        .main__charactor__pict
+          = image_tag "/man2.svg", size: "250x320"
+        %h3(class="list2__text")売上金は即日振込みに対応
+        %p(class="list2__description")午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %li(class="list2")
+        .main__charactor__pict
+          = image_tag "/man3.svg", size: "250x320"
+        %h3(class="list2__text")様々な支払いに対応
+        %p(class="list2__description")お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+  
+  .main__pickup
+    %h2(class="head")ピックアップカテゴリー
+    
 .appbanner
 
 .footer
