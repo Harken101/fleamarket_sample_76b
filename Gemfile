@@ -81,3 +81,6 @@ gem 'haml-rails'
 
 #ユーザー管理
 gem 'devise'
+
+#アイコン画像
+gem 'font-awesome-sass'
