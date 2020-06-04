@@ -78,3 +78,6 @@ end
 
 #haml導入
 gem 'haml-rails'
+
+#ユーザー管理
+gem 'devise'
