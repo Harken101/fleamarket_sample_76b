@@ -20,6 +20,7 @@
             padding-bottom: 10px;
             margin-right: 30px;
             border-radius: 4px;
+            width: 150px;
           }
             // 検索部分
             &__searchbox{
@@ -33,6 +34,15 @@
                   width: calc(100% - 26px);
                   height: 36px;
                   padding: 0 0 0 5px;
+                }
+                button{
+                  width: 36px;
+                  border: 0;
+                  cursor: pointer;
+                  background-color: #3CCACE;
+                  padding: 8px;
+                  font-size: 18px;
+                  color: white;
                 }
               }
             }
@@ -114,7 +124,393 @@
 // メインページ
 .main{
   background: #f8f8f8;
+  //人生を変えるフリマアプリ部分
   &__visual{
-    
+    width: 100%;
+    height: 560px;
+    background-image: url(/main1.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: relative;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    &__content{
+      max-width: 1280px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 35px 0 0 0;
+      //人生を変えるフリマアプリテキスト
+      .content__subtitle{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 60px;
+        line-height: 1.2;
+        color: #fff;
+      }
+      //改行含むテキスト
+      .content__text{
+        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        font-size: 18px;
+        color: #fff;
+        line-height: 1.77778;
+        margin: 16px 0 0 0;
+      }
+      //ボタン部分
+      &__btn{
+        display: flex;
+        margin: 24px 0 0 0;
+        //appleボタン
+        .alink{
+          margin-right: 10px;
+          width: 180px;
+        }
+        .abtn{
+          width: 100%;
+          vertical-align: bottom;
+        }
+        .abtn:hover{
+          opacity: 0.5;
+        }
+        //googleボタン
+        .gbtn{
+          width: 180px;
+          vertical-align: bottom;
+        }
+        .gbtn:hover{
+          opacity: 0.5;
+        }
+      }
+    }
   }
+  // 3つの理由部分
+  &__topintro{
+    padding: 60px 20px;
+    // FRIMAが選ばれる3つの理由
+    .subtitle{
+      text-align: center;
+      font-size: 26px;
+      line-height: 1.4;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+    // ３つのリスト部分、クラスは共通
+    .lists{
+      text-align: center;
+      display: flex;
+      max-width: 1020px;
+      width: 100%;
+      margin: 0 auto;
+      .list{
+        width: 30%;
+        margin: 16px 5% 0 0;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // 画像の部分
+        .main__topintro__pict{
+          position: relative;
+          margin-bottom: 20px;
+          .number{
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 4%;
+            font-size: 30px;
+            text-align: center;
+            margin: 0 5px 0 0;
+            padding: 10px 20px;
+            background-color: #3CCACE;
+            color: #fff;
+          }
+          img{
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+      }
+      // h3部分
+      .list__text{
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 50px;
+        margin: 0 0 0 2px;
+        span{
+          color: #3CCACE;
+        }
+      }
+      // pタグ部分
+      .list__description{
+        font-size: 18px;
+        line-height: 1.5;
+        margin: 16px 0 0;
+      }
+    }
+  }
+  // 会員数日本1位の部分、ボタンは使い回し
+  &__middle{
+    background-image: url(/main2.jpeg);
+    background-position: bottom right;
+    height: 400px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    &__content{
+      color: #fff;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      text-align: left;
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto;
+      // 会員数日本1位
+      .subtitle{
+        font-size: 27px;
+        font-weight: bold;
+        line-height: 1.4;
+      }
+      // FURIMAは〜の部分
+      .text{
+        font-size: 18px;
+        margin: 20px 0 30px;
+        line-height: 1.5;
+      }
+    }
+  }
+  // ３つの特徴部分、3つの理由部分を使いまわしている
+  &__charactor{
+    padding: 60px 100px;
+    background-color: #fff;
+    // 特徴部分h2
+    .headtitle{
+      font-size: 27px;
+      text-align: center;
+      margin: 0 0 40px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      position: relative;
+    }
+    // ３つのリスト部分、クラスは共通
+    .lists2{
+      text-align: center;
+      display: flex;
+      max-width: calc(1040px + 20px);
+      width: 100%;
+      margin: 0 auto;
+      .list2{
+        width: calc(1 / 3 * 100%);
+        padding: 0 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        // 画像の部分
+        img{
+          width: 100%;
+          vertical-align: bottom;
+        }
+      }
+    }
+    // h3部分
+    .list2__text{
+      margin: 38px 0 10px;
+      font-size: 19px;
+      font-weight: bold;
+    }
+    // pタグ部分
+    .list2__description{
+      margin: 0 0 40px;
+      font-size: 17px;
+      font-weight: 200;
+      text-align: left;
+    }
+  }
+  //ピックアップ商品&ブランド、レイアウトほぼ一緒なので使い回し
+  &__pickup{
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    padding-bottom: 80px;
+    //ピックアップカテゴリー&ブランド
+    .head{
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    &__productbox{
+      //新規投稿商品&アーカイバ
+      &__head{
+        text-align: center;
+        .title{
+          font-weight: bold;
+          a{
+            font-size: 24px;
+            text-decoration: none;
+            color: #3CCACE;
+          }
+        }
+      }
+      //商品リスト
+      &__lists{
+        width: 780px;
+        margin: 26px auto;
+        display: flex;
+        justify-content: space-around;
+        &__list{
+          width: 220px;
+          display: inline-block;
+          //商品の画像と説明、どちらをクリックしてもリンクで飛ぶ
+          a{
+            background-color: #fff;
+            display: inline-block;
+            text-decoration: none;
+            //商品の画像
+            .productimage{
+              width: 200px;
+              height: 150px;
+              position: relative;
+              overflow: hidden;
+              margin: 0;
+              z-index: auto;
+            }
+            //商品名とデータ
+            .list__body{
+              background-color: white;
+              color: #333;
+              padding: 16px;
+              .name{
+                overflow: hidden;
+                line-height: 1.5;
+                font-size: 16px;
+                text-align: left;
+              }
+              .datalist{
+                font-size: 16px;
+                ul{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  .icon{
+                    display: inline-block;
+                    font: normal normal normal 14px/1 FontAwesome;
+                    font-size: inherit;
+                    text-rendering: auto;
+                    -webkit-font-smoothing: antialiased;
+                  }
+                }
+                p{
+                  font-size: 10px;
+                  text-align: left;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// appバナー部分
+.appbanner{
+  background-image: url(/main3.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  &__inner{
+    color: #fff;
+    text-align: center;
+    //誰でも簡単フリマアプリ
+    .banner__subtitle{
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    //今すぐ無料ダウンロード
+    .banner__text{
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    //ボタン部分
+    &__icon{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 20px auto 0;
+      //appleボタン
+      .alink{
+        margin-right: 10px;
+        width: 180px;
+      }
+      .abtn{
+        width: 100%;
+        vertical-align: bottom;
+      }
+      .abtn:hover{
+        opacity: 0.5;
+      }
+      //googleボタン
+      .gbtn{
+        width: 180px;
+        vertical-align: bottom;
+      }
+      .gbtn:hover{
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+// footer部分
+.footer{
+  padding: 60px 0;
+  color: #fff;
+  background-color: #272727;
+  text-align: center;
+  .contents{
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    .content{
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      .content__head{
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      ul{
+        list-style: none;
+        a{
+          color: #fff;
+          text-decoration: none;
+          font-size: 12px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+  .footer__logo{
+    width: 220px;
+    margin: 0 auto;
+  }
+  p{
+    font-size: 14px;
+  }
+}
+
+// 出品ボタン
+.purchasbtn{
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
 }
