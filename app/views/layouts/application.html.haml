@@ -8,14 +8,16 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    
     .header
       .header__inner
         .header__inner__mainheader
-          = image_tag "/logo2.png", size: "150x55", alt: "test", class: "homebtn"
+          = link_to image_tag(src= "/logo2.png", class: "homebtn"), "/"
           .header__inner__mainheader__searchbox
             = form_with url: '#' do |form|
               = form.text_field :content, class: 'inputbox__text', placeholder: 'キーワード検索'
-              = form.submit :検索, class: 'serchbutton'
+              %button(type="submit")
+                =icon("fas","search")
 
         .header__inner__nav
           %ul(class="listsleft")
@@ -29,4 +31,49 @@
               %a(href="#")ログイン
             %li(class="listsright__item2")
               %a(href="#")新規会員登録
+    
     = yield
+    
+    .appbanner
+      .appbanner__inner
+        %h2(class="banner__subtitle")誰でも簡単フリマアプリ
+        %p(class="banner__text")今すぐ無料ダウンロード
+        .appbanner__inner__icon
+          = link_to image_tag(src= "/appstore.png", class: "abtn"), "#", class: "alink"
+          = link_to image_tag(src= "/googleplay.png", class: "gbtn"), "#"
+    
+    .footer
+      %ul(class="contents")
+        #li(class="content")
+          %h2(class="content__head")FURIMAについて
+          %ul
+            %li
+              %a(href="#")会社概要（運営会社）
+            %li
+              %a(href="#")プライバシーポリシー
+            %li
+              %a(href="#")FURIMA利用規約
+            %li
+              %a(href="#")ポイントに関する特約
+        #li(class="content")
+          %h2(class="content__head")FURIMAを見る
+          %ul
+            %li
+              %a(href="#")カテゴリー一覧
+            %li
+              %a(href="#")ブランド一覧
+        #li(class="content")
+          %h2(class="content__head")ヘルプ&ガイド
+          %ul
+            %li
+              %a(href="#")FURIMAガイド
+            %li
+              %a(href="#")FURIMAロゴ利用ガイドライン
+            %li
+              %a(href="#")お知らせ
+      .footer__logo
+        = link_to image_tag(src= "/logo2.svg", class: "footerlogo"), "#"
+      %p ©️ FURIMA
+    
+    .purchasbtn
+      = link_to image_tag(src= "/syupin1.png", class: "syupin"), "#"
