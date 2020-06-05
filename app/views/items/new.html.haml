@@ -1,0 +1,99 @@
+.new-content 
+  .new-item
+    .new-item-content
+      = form_with model: @item do |f| 
+        .new-item-content__images
+          .new-item-content__images__box
+            .new-item-content__images__title
+              商品画像
+            .required
+              必須
+          .new-item-content__images__explanation
+            最大10枚までアップロードできます
+          %label{class: "new-images"}
+            = icon('fas', 'camera', class: 'new-images__icon')
+            .new-images__explanationb クリックしてファイルをアップロード
+            %input{type: "file", class: "new-images__icon__input"}
+        .new-item-content__item
+          .new-item-content__item__box
+            .new-item-content__item__title
+              商品名
+            .required
+              必須
+          = f.text_field :name, placeholder: "40文字まで", class: 'new-item-content__item__name'
+          .new-item-content__item__box
+            .new-item-content__item__title
+              商品説明
+            .required
+              必須
+          = f.text_area :description, class: 'new-item-content__item__description', cols: "50", rows: "7", placeholder: "商品の説明（必須 1,000文字以内&#13;(色、素材、重さ、定価、注意点など）&#13;&#13;例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。".html_safe 
+          .new-item-content__item__description__count
+            0/1000
+        .new-item-content__thedetails
+          .new-item-content__thedetails__title
+            商品の詳細
+          .new-item-content__thedetails__box
+            .new-item-content__item__box__title
+              商品説明
+            .required
+              必須
+          = f.text_field :name, placeholder: "選択してください", class: 'new-item-content__thedetails__category'
+          -# .new-item-content__thedetails__box
+          -#   .new-item-content__item__box__title
+          -#     ブランド
+          -#   .required
+          -#     必須
+          -# = f.text_field :name, placeholder: "選択してください", class: 'new-item-content__thedetails__category'
+          .new-item-content__thedetails__box
+            .new-item-content__item__box__title
+              商品の状態
+            .required
+              必須
+          = f.text_field :name, placeholder: "選択してください", class: 'new-item-content__thedetails__status'
+        .new-item-content__delivery
+          .new-item-content__delivery__title
+            配送について
+          .new-item-content__delivery__box
+            .new-item-content__delivery__box__title
+              配送料の負担
+            .required
+              必須
+          = f.text_field :name, placeholder: "選択してください", class: 'new-item-content__delivery__payer'
+          .new-item-content__delivery__box
+            .new-item-content__delivery__box__title
+              発送元の地域
+            .required
+              必須
+          = f.text_field :name, placeholder: "選択してください", class: 'new-item-content__delivery__prefecture'
+          .new-item-content__delivery__box
+            .new-item-content__delivery__box__title
+              発送までの日数
+            .required
+              必須
+          = f.text_field :name, placeholder: "選択してください", class: 'new-item-content__delivery__preday'
+        .new-item-content__price
+          .new-item-content__price__title
+            価格
+          .new-item-content__price__flex
+            .new-item-content__price__box
+              .new-item-content__price__box__title
+                販売価格
+              .required
+                必須
+            .new-item-content__price__input
+              .new-item-content__price__input__text
+                ¥
+              = f.text_field :name, placeholder: "0", class: 'new-item-content__price__input__form'
+        .new-item-content__submit
+          .new-item-content__submit__box
+            = f.submit class: 'new-item-content__submit__box__submit-btn', value: '出品する'
+            = link_to "#", class: "new-item-content__submit__box__return-btn" do
+              もどる
+          
+
+
+-#  class: 'new-item-content__submit__box__return-btn'
+
+
+
+
