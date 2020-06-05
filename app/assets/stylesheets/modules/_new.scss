@@ -9,7 +9,6 @@
     width: 50%;
     height: 2050px;
     margin: 0 auto;
-    // padding-top: 100px;
     background-color: white;
     .new-item-content{
       &__images{
@@ -199,8 +198,6 @@
           justify-content: space-between;
           align-items: center;
           width: 100%;
-          // margin: 0 auto;
-          // background-color: yellow;
         }
         &__box{
           width: 80%;
@@ -212,7 +209,6 @@
         }
         &__input{
           display: flex;
-          // padding-top: 16px;
           align-items: center;
           &__text{
             height: 24px;
@@ -229,8 +225,6 @@
         }
       }
       &__submit{
-        // height: 450px;
-        // border-bottom: 1px solid rgb(204, 204, 204);
         &__box {
           width: 50%;
           margin: 0 auto;
@@ -263,10 +257,6 @@
     color: #fff;
     border-radius: 2px;
     font-style: normal;
-    // font-weight: 600;
     line-height: 1.4em;
-    // font-size: 12px;
-    // height: 16px;
-    // line-height: 16px;
   }
 }
