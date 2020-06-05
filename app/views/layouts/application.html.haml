@@ -20,57 +20,56 @@
                 =icon("fas","search")
 
         .header__inner__nav
-          %ul(class="listsleft")
-            %li(class="listsleft__item")
-              %a(href="#" class="catbtn")カテゴリー
-            %li(class="listsleft__item2")
-              %a(href="#" class="brandbtn")ブランド
-          
-          %ul(class="listsright")
-            %li(class="listsright__item")
-              %a(href="#")ログイン
-            %li(class="listsright__item2")
-              %a(href="#")新規会員登録
+          %ul.listsleft
+            %li.listsleft__item
+              =link_to "カテゴリー", "#", class:"catbtn"
+            %li.listsleft__item2
+              =link_to "ブランド", "#", class:"brandbtn"
+          %ul.listsright
+            %li.listsright__item
+              =link_to "ログイン", "#"
+            %li.listsright__item2
+              =link_to "新規会員登録", "#"
     
     = yield
     
     .appbanner
       .appbanner__inner
-        %h2(class="banner__subtitle")誰でも簡単フリマアプリ
-        %p(class="banner__text")今すぐ無料ダウンロード
+        %h2.banner__subtitle 誰でも簡単フリマアプリ
+        %p.banner__text 今すぐ無料ダウンロード
         .appbanner__inner__icon
           = link_to image_tag(src= "/appstore.png", class: "abtn"), "#", class: "alink"
           = link_to image_tag(src= "/googleplay.png", class: "gbtn"), "#"
     
     .footer
-      %ul(class="contents")
-        #li(class="content")
-          %h2(class="content__head")FURIMAについて
+      %ul.contents
+        %li.content
+          %h2.content__head FURIMAについて
           %ul
             %li
-              %a(href="#")会社概要（運営会社）
+              =link_to "会社概要（運営会社）", "#"
             %li
-              %a(href="#")プライバシーポリシー
+              =link_to "プライバシーポリシー", "#"
             %li
-              %a(href="#")FURIMA利用規約
+              =link_to "FURIMA利用規約", "#"
             %li
-              %a(href="#")ポイントに関する特約
-        #li(class="content")
-          %h2(class="content__head")FURIMAを見る
+              =link_to "ポイントに関する特約", "#"
+        %li.content
+          %h2.content__head FURIMAを見る
           %ul
             %li
-              %a(href="#")カテゴリー一覧
+              =link_to "カテゴリー一覧", "#"
             %li
-              %a(href="#")ブランド一覧
-        #li(class="content")
-          %h2(class="content__head")ヘルプ&ガイド
+              =link_to "ブランド一覧", "#"
+        %li.content
+          %h2.content__head ヘルプ&ガイド
           %ul
             %li
-              %a(href="#")FURIMAガイド
+              =link_to "FURIMAガイド", "#"
             %li
-              %a(href="#")FURIMAロゴ利用ガイドライン
+              =link_to "FURIMAロゴ利用ガイドライン", "#"
             %li
-              %a(href="#")お知らせ
+              =link_to "お知らせ", "#"
       .footer__logo
         = link_to image_tag(src= "/logo2.svg", class: "footerlogo"), "#"
       %p ©️ FURIMA
