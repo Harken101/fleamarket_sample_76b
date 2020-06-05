@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  # validates :nickname,presence: true, uniqueness: true
+  validates :nickname,presence: true, uniqueness: true
   # validates :family_name,presence: true, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
   # validates :first_name,presence: true, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
   # validates :furigana_family_name,presence: true,{ with: /\A[ぁ-んー－]+\z/}

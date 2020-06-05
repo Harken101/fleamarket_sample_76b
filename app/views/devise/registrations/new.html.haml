@@ -7,9 +7,10 @@
     .account-page__inner--right.user-form
       = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
         = devise_error_messages!
+        %h6 ユーザー情報
         .field
           .field-label
-            = f.label :nickname
+            = f.label :nickname,"ニックネーム"
           .field-input
             = f.text_field :nickname, autofocus: true
         .field
@@ -19,8 +20,7 @@
             = f.email_field :email
         .field
           .field-label
-            = f.label :password
-            %i (英数字8文字以上)
+            = f.label :password,"パスワードを英数字で7文字以上入力してください"
           .field-input
             = f.password_field :password, autocomplete: "off"
         .field
@@ -28,5 +28,33 @@
             = f.label :password_confirmation
           .field-input
             = f.password_field :password_confirmation, autocomplete: "off"
+
+        -# %h6 本人確認情報
+        -# .field
+        -#   .field-label
+        -#     = f.label :family_name, "名字"
+        -#   .field-input
+        -#     = f.text_field :family_name, autofocus: true
+        -# .field
+        -#   .field-label
+        -#     = f.label :first_name, "名前"
+        -#   .field-input
+        -#     = f.text_field :first_name, autofocus: true
+        -#   %p.furigana ふりがなで入力してください
+        -#   .field
+        -#     .field-label
+        -#       = f.label :furigana_family_name, "名字"
+        -#     .field-input
+        -#       = f.text_field :furigana_family_name, autofocus: true
+        -#   .field
+        -#     .field-label
+        -#       = f.label :furigana_first_name, "名前"
+        -#     .field-input
+        -#       = f.text_field :furigana_first_name, autofocus: true
+        -#   .field
+        -#     .field-label
+        -#       = f.label :birthday, "生年月日を入力してくだい"
+        -#     .field-input
+        -#       != sprintf(f.date_select(:birthday, prefix:'birthday',with_css_classes:'XXXXX', prompt:"--",use_month_numbers:true, start_year:Time.now.year, end_year:1900, date_separator:'%s'),'年','月')+'日'
         .actions
           = f.submit "Create Account", class: 'btn'
