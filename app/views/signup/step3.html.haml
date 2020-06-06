@@ -1,0 +1,26 @@
+= form_for @user, url: complete_signup_signup_index_path, method: :post do |f|
+  = hidden_field_tag :current_step, 'step3'
+  = f.fields_for :address do |a|
+
+    = a.label :zipcode, "郵便番号"
+    = a.text_field :zipcode
+
+    -# = a.label :prefecture, "都道府県"
+    -# = a.collection_select :prefecture_id, Prefecture.all, :id, :name
+
+    -# = a.label :prefecture, "都道府県"
+    -# = a.text_field :prefecture
+
+    = a.label :city, "市区町村"
+    = a.text_field :city
+
+    = a.label :street, "番地"
+    = a.text_field :street
+
+    = a.label :mansion, "建物名"
+    = a.text_field :mansion
+
+    = a.label :tell, "電話番号"
+    = a.text_field :tell
+
+  = f.submit '登録を完了する'

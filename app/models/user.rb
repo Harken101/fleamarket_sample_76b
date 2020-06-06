@@ -11,4 +11,7 @@ class User < ApplicationRecord
   validates :furigana_first_name,presence: true,format: { with: /\A[ぁ-んー－]+\z/}
   validates :birthday,presence: true
   validates :email,presence: true, uniqueness: true
+
+  has_one  :address,       dependent: :destroy
+  accepts_nested_attributes_for :address
 end

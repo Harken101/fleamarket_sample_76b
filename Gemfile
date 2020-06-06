@@ -86,3 +86,4 @@ gem 'devise'
 gem 'font-awesome-sass'
 # バンデルくん
 gem 'pry-rails'
+gem 'active_hash'
