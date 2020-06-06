@@ -1,8 +1,8 @@
-.main
-  .main__section
+.main1
+  .main1__section
     %h2.buy-head 購入内容の確認
-    .main__section__inner
-      .main__section__inner__items
+    .main1__section__inner
+      .main1__section__inner__items
         .item-box
           %h3.item_image
             =image_tag "/image1.png"
@@ -11,8 +11,8 @@
             %p.item-price 
               %span.money ¥4800
               %span.tax (税込)送料込み
-    .main__section__inner
-      .main__section__inner__items
+    .main1__section__inner
+      .main1__section__inner__items
         = form_with model: @item do |f|
           %ul.price-table
             %li.price-big
