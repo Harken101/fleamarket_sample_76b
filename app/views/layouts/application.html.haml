@@ -23,12 +23,16 @@
           %a(href="#" class="catbtn")カテゴリー
         %li(class="listsleft__item2")
           %a(href="#" class="brandbtn")ブランド
-      
-      %ul(class="listsright")
-        = link_to new_user_registration_path, method: :get,class:"listsright__item" do
+      -if user_signed_in?        
+        %ul(class="listsright")
+          = link_to new_user_registration_path, method: :get,class:"listsright__item" do
+            %li マイページ<
+          = link_to destroy_user_session_path, method: :delete, class:"listsright__item" do
+            %li ログアウト
+      - else
+        %ul(class="listsright")
+        = link_to new_user_registration_path, method: :get,class:"listsright__item3" do
           %li ログイン
-        = link_to destroy_user_session_path, method: :delete, class:"listsright__item" do
-          %li ログアウト
         = link_to step1_signup_index_path, method: :get,class:"listsright__item2" do
           %li 新規登録 
             

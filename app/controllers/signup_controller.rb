@@ -36,11 +36,14 @@ class SignupController < ApplicationController
   end
   
   def complete_signup
-    # binding.pry
     @user = User.new(session[:user_params_after_step2])  # ここでuserモデルのsessionを引数で渡す。
     @user.build_address(user_params[:address_attributes])  # 今回のビューで入力された情報を代入。
+    # User.create(session[:user_params_after_step2])
+    # Address.create(user_params[:address_attributes])
     if @user.save
+      # binding.pry
       session[:id] = @user.id  #ここでidをsessionに入れることでログイン状態に持っていける。
+      # redirect_to root_path
       redirect_to complete_signup_signup_index_path
     else
       render '/signup/step1'
@@ -60,11 +63,11 @@ def user_params
     :furigana_family_name,
     :furigana_first_name,
     :birthday,
-    address_attributes: [:id, :family_name, :first_name, :furigana_family_name, :furigana_first_name, :zipcode, :city, :street, :mansion, :tell]
+    address_attributes: [:id, :family_name, :first_name, :furigana_family_name, :furigana_first_name,:prefecture, :zipcode, :city, :street, :mansion, :tell]
   )
 end
 
-# :prefecture,
+
 
 # def step1
 #   @user = User.new # 新規インスタンス作成
