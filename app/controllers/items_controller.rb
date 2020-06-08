@@ -6,6 +6,9 @@ class ItemsController < ApplicationController
     @tweet = Item.new
   end
 
+  def show
+  end
+  
   def buyscreen
   end
 
