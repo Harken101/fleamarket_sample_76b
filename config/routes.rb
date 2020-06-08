@@ -10,7 +10,6 @@ Rails.application.routes.draw do
       get 'step1' #ユーザー名とパスワード入力
       post 'step2' #本人確認情報入力
       post 'step3' #お届け先情報（address）を入力
-      # post 'step4' # カード情報
       post 'complete_signup' # 登録完了後のページ
     end
   end

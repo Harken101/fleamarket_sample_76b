@@ -12,7 +12,7 @@ class SignupController < ApplicationController
       session[:user_params_after_step1] = user_params
       @user = User.new(session[:user_params_after_step1])
       # binding.pry
-      render '/signup/step2' unless @user.valid?(:validates_step1)
+      render '/signup/step1' unless @user.valid?(:validates_step1)
     end 
   
     def step2
@@ -38,14 +38,14 @@ class SignupController < ApplicationController
   def complete_signup
     @user = User.new(session[:user_params_after_step2])  # ここでuserモデルのsessionを引数で渡す。
     @user.build_address(user_params[:address_attributes])# 今回のビューで入力された情報を代入。
-    # binding.pry
-    render '/signup/step2' unless @user.build_address(user_params[:address_attributes]).valid?(:validates_step3)
-    if @user.save
-      # binding.pry
+
+    if @user.build_address(user_params[:address_attributes]).valid?(:validates_step3)
+      @user.save
       session[:id] = @user.id  #ここでidをsessionに入れることでログイン状態に持っていける。
-      sign_in User.find(session[:id]) unless user_signed_in?
+      sign_in User.find(session[:id])
       redirect_to root_path
-      # redirect_to complete_signup_signup_index_path
+    else
+      render '/signup/step3'
     end
   end
 end
@@ -65,49 +65,3 @@ def user_params
     address_attributes: [:id, :family_name, :first_name, :furigana_family_name, :furigana_first_name,:prefecture, :zipcode, :city, :street, :mansion, :tell]
   )
 end
-
-
-
-# def step1
-#   @user = User.new # 新規インスタンス作成
-# end
-
-# def step2
-#   # step1で入力された値をsessionに保存
-#   session[:nickname] = user_params[:nickname]
-#   session[:email] = user_params[:email]
-#   session[:password] = user_params[:password]
-#   session[:password_confirmation] = user_params[:password_confirmation]
-#   @user = User.new # 新規インスタンス作成
-# end
-
-# # def step3
-# #   # step2で入力された値をsessionに保存
-# #   session[:family_name] = user_params[:family_name]
-# #   session[:first_name] = user_params[:first_name]
-# #   session[:furigana_family_name] = user_params[:furigana_family_name]
-# #   session[:furigana_first_name] = user_params[:furigana_first_name]
-# #   session[:birthday] = user_params[:birthday]
-# #   @user = User.new # 新規インスタンス作成
-# # end
-
-# def create
-#   @user = User.new(
-#     nickname: session[:nickname], # sessionに保存された値をインスタンスに渡す
-#     email: session[:email],
-#     password: session[:password],
-#     password_confirmation: session[:password_confirmation],
-#     family_name: session[:family_name], 
-#     first_name: session[:first_name], 
-#     furigana_family_name: session[:furigana_family_name], 
-#     furigana_first_name: session[:furigana_first_name], 
-#     birthday: session[:birthday]
-#   )
-#   if @user.save
-#     # ログインするための情報を保管
-#     session[:id] = @user.id
-#     redirect_to complete_signup_signup_index_path
-#   else
-#     render '/signup/step1'
-#   end
-# end
