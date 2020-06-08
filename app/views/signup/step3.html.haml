@@ -1,6 +1,8 @@
 = form_for @user, url: complete_signup_signup_index_path, method: :post do |f|
   = hidden_field_tag :current_step, 'step3'
+  = render partial: 'error-step3', locals: {address: @user} #ニックネームのエラー文のみ表示したい場合
   = f.fields_for :address do |a|
+  
     .field
       .field-label
         = a.label :family_name, "名字"
@@ -44,7 +46,7 @@
         = a.text_field :street
     .field
       .field-label
-        = a.label :tell, "電話番号"
+        = a.label :tell, "電話番号もしくは携帯電話番号（ハイフンなし）"
       .field-input
         = a.text_field :tell
   = f.submit '登録を完了する'

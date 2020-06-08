@@ -1,5 +1,6 @@
 = form_for @user, url: step3_signup_index_path do |f|
   = hidden_field_tag :current_step, 'step2'
+  = render partial: 'error-step2', locals: {user: @user} #ニックネームのエラー文のみ表示したい場合
   .field
     .field-label
       = f.label :family_name, "名字"
