@@ -14,5 +14,4 @@ Rails.application.routes.draw do
       post 'complete_signup' # 登録完了後のページ
     end
   end
-  
 end

@@ -10,8 +10,9 @@ class SignupController < ApplicationController
     # 以下バリデーション
     def save_step1_to_session
       session[:user_params_after_step1] = user_params
-      @user = User.new(session[:user_params])
-      # render '/signup/step1' unless @user.valid?
+      @user = User.new(session[:user_params_after_step1])
+      # binding.pry
+      render '/signup/step2' unless @user.valid?(:validates_step1)
     end 
   
     def step2
@@ -22,31 +23,29 @@ class SignupController < ApplicationController
     # 以下バリデーション
     def save_step2_to_session
     session[:user_params_after_step2] = user_params
+
     session[:user_params_after_step2].merge!(session[:user_params_after_step1])
-    @user = User.new
+    @user = User.new(session[:user_params_after_step2])
     @user.build_address(session[:address_attributes])
-    # render '/signup/step2' unless @user.valid?
+    render '/signup/step2' unless @user.valid?(:validates_step2)
   end
   
   def step3
     @user = User.new
-    # session[:user_params_after_step2] = user_params  #userモデルの値をぶっこむ。
-    # session[:user_params_after_step2].merge!(session[:user_params_attributes_after_step1])  # step2のsessionにstep1のsessionの中身を合わせる。
     @user.build_address #userモデルとaddressesモデルの関連付け。
   end
   
   def complete_signup
     @user = User.new(session[:user_params_after_step2])  # ここでuserモデルのsessionを引数で渡す。
-    @user.build_address(user_params[:address_attributes])  # 今回のビューで入力された情報を代入。
-    # User.create(session[:user_params_after_step2])
-    # Address.create(user_params[:address_attributes])
+    @user.build_address(user_params[:address_attributes])# 今回のビューで入力された情報を代入。
+    # binding.pry
+    render '/signup/step2' unless @user.build_address(user_params[:address_attributes]).valid?(:validates_step3)
     if @user.save
       # binding.pry
       session[:id] = @user.id  #ここでidをsessionに入れることでログイン状態に持っていける。
-      # redirect_to root_path
-      redirect_to complete_signup_signup_index_path
-    else
-      render '/signup/step1'
+      sign_in User.find(session[:id]) unless user_signed_in?
+      redirect_to root_path
+      # redirect_to complete_signup_signup_index_path
     end
   end
 end
