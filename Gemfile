@@ -93,3 +93,10 @@ gem 'ancestry'
 
 # 都道府県
 gem 'active_hash'
+
+# 画像送信
+gem 'carrierwave'
+gem 'mini_magick'
+
+# JS
+gem 'jquery-rails'
