@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   
   #アソシエーションを組んであるモデルに対してのバリデーションを組む
   validates_associated :images
+  validates :images, presence: true
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
