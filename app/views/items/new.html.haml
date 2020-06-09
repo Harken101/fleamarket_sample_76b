@@ -10,14 +10,14 @@
               必須
           .new-item-content__images__explanation
             最大10枚までアップロードできます
-          = f.fields_for :images do |i|
-            .js-file_group{"data-index" => "#{i.index}"}
-              %label{class: "new-images"}
-                = icon('fas', 'camera', class: 'new-images__icon')
-                .new-images__explanationb クリックしてファイルをアップロード
-                = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", style: "display:none", class: 'js-file'
-                %br/
-                %span.js-remove 削除
+          #image-box-1
+            .item-num-0#image-box__container
+            = f.fields_for :images do |i|
+              .js-file_group{"data-index" => "#{i.index}"}
+                %label.new-images
+                  = icon('fas', 'camera', class: 'new-images__icon')
+                  .new-images__explanationb クリックしてファイルをアップロード
+                  = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", class: 'js-file'
               -# %input{type: "file", class: "new-images__icon__input"}
         .new-item-content__item
           .new-item-content__item__box
@@ -55,7 +55,8 @@
               商品の状態
             .required
               必須
-          = f.text_field :status, placeholder: "選択してください", class: 'new-item-content__thedetails__status'
+          = f.select :status, Item.item_statuses, {prompt: "選択してください"}, {class: 'new-item-content__thedetails__status'}
+          -# = f.text_field :status, placeholder: "選択してください", class: 'new-item-content__thedetails__status'
         .new-item-content__delivery
           .new-item-content__delivery__title
             配送について

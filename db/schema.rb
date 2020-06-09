@@ -12,8 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2020_06_07_015540) do
 
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+  end
+
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "image_url"
+    t.string "image_url", null: false
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,17 +29,17 @@ ActiveRecord::Schema.define(version: 2020_06_07_015540) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.text "description"
-    t.integer "status"
-    t.integer "price"
-    t.integer "payer"
-    t.integer "preday"
+    t.integer "status", null: false
+    t.integer "price", null: false
+    t.integer "payer", null: false
+    t.integer "preday", null: false
     t.boolean "sold", default: true
     t.bigint "user_id"
     t.bigint "postage_type_id"
     t.bigint "category_id"
-    t.bigint "prefecture_id"
+    t.bigint "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"

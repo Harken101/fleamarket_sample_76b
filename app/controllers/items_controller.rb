@@ -9,7 +9,15 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
+    # @item = Item.new(item_params)
+    # if @item.images(:image_url).valid?(:validates_image)
+    #   @item.save
+    #   redirect_to root_path
+    # # @item = Item.create(item_params)
+    # else
+    #   redirect_to new_item_path
+    # end
+    @item = Item.create(item_params)
     redirect_to new_item_path
   end
 
