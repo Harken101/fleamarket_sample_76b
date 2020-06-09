@@ -4,6 +4,10 @@ class Item < ApplicationRecord
 
   validates :name, presence: true
   validates :description, presence: true
+  
+  #アソシエーションを組んであるモデルに対してのバリデーションを組む
+  validates_associated :images
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
