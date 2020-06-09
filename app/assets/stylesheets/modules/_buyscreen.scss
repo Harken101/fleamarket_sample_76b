@@ -1,0 +1,107 @@
+.main1{
+  background-color: #EEEEEE;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  overflow: scroll;
+  &__section{
+    width: 700px;
+    margin: 0 auto;
+    background-color:white;
+    // 購入内容の確認
+    .buy-head{
+      font-size: 22px;
+      padding: 32px;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: 600
+    }
+    // 各ブロックを分けている
+    &__inner{
+      padding: 32px 16px;
+      border-top: 1px solid #f5f5f5;
+      // 商品画像と名前
+      &__items{
+        max-width: 290px;
+        margin: 0 auto;
+        .item-box{
+          display: flex;
+          .item_image{
+            height: 80px;
+            img{
+              width: 80px;
+            }
+          }
+          .item-box-data{
+            margin-left: 30px;
+            .item-name{
+              font-size: 18px;
+              margin: 0;
+              padding: 0 0 8px;
+              line-height: 1.5;
+              text-align: left;
+            }
+            .item-price{
+              margin: 0;
+              text-align: left;
+              font-size: 15px;
+              font-weight: 600;
+              .tax{
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+    // 支払い金額 ~円
+    .price-table{
+      padding-bottom: 30px;
+      .price-big{
+        font-size: 30px;
+        display: flex;
+        line-height: 10px;
+        .merge-price{
+          font-size: 17px;
+        }
+        .buy-price{
+          padding-left: 95px;
+        }
+      }
+    }
+    // 支払い方法と配送先
+    // カード情報と住所を登録したらビューが変わる？
+    .item-info{
+      padding: 32px 0;
+      border-top: 1px solid #f5f5f5;
+      .item-info-inner{
+        h3{
+          font-size: 14px;
+        }
+        .links{
+          text-align: left;
+          margin: 8px 0 0;
+          font-size: 14px;
+          color: #0099e8;
+          a{
+            text-decoration: none;
+            color: #0099e8;
+          }
+        }
+      }
+      // 購入ボタン
+      .item-info-button{
+        padding: 10px 0;
+        button{
+          display: block;
+          width: 100%;
+          line-height: 60px;
+          font-size: 16px;
+          border: 1px solid #888;
+          background: #3CCACE;
+          color: #fff;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

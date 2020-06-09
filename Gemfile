@@ -84,8 +84,15 @@ gem 'devise'
 
 #アイコン画像
 gem 'font-awesome-sass'
+
 # バンデルくん
 gem 'pry-rails'
 gem 'active_hash'
 #  エラーの日本語化
 gem 'rails-i18n'
+
+#payjp
+gem 'payjp'
+
+#カテゴリーわけ
+gem 'ancestry'
