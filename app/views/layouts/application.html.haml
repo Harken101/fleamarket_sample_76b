@@ -27,13 +27,13 @@
               =link_to "ブランド", "#", class:"brandbtn"
 
           -if user_signed_in?        
-            %ul(class="listsright")
+            %ul.listsright
               = link_to new_user_registration_path, method: :get,class:"listsright__item" do
                 %li マイページ<
               = link_to destroy_user_session_path, method: :delete, class:"listsright__item" do
                 %li ログアウト
           - else
-            %ul(class="listsright")
+            %ul.listsright
             = link_to user_session_path, method: :post,class:"listsright__item" do
               %li ログイン
             = link_to step1_signup_index_path, method: :get,class:"listsright__item" do

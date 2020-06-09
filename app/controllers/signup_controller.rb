@@ -4,19 +4,16 @@ class SignupController < ApplicationController
   
     def step1
       @user = User.new
-      # @user.build_address
     end
   
     # 以下バリデーション
     def save_step1_to_session
       session[:user_params_after_step1] = user_params
       @user = User.new(session[:user_params_after_step1])
-      # binding.pry
       render '/signup/step1' unless @user.valid?(:validates_step1)
     end 
   
     def step2
-      # session[:user_params_after_step1] = user_params  #userモデルの値をぶっこむ。
       @user = User.new
     end
   
