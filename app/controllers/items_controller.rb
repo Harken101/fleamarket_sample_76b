@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     @item.images.build
   end
 
+
   def create  
     @item = Item.new(item_params)
     if @item.save
@@ -17,10 +18,15 @@ class ItemsController < ApplicationController
     end
   end
 
+  def show
+  end
+  
+  def buyscreen
+  end
+  
   private
   def item_params
     params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :user_id, :postage_type_id, :category_id, :prefecture_id, images_attributes: [:image])
   end
-
-
+  
 end

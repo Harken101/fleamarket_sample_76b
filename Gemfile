@@ -85,14 +85,17 @@ gem 'devise'
 #アイコン画像
 gem 'font-awesome-sass'
 
+# バンデルくん
+gem 'pry-rails'
+gem 'active_hash'
+#  エラーの日本語化
+gem 'rails-i18n'
+
 #payjp
 gem 'payjp'
 
 #カテゴリーわけ
 gem 'ancestry'
-
-# 都道府県
-gem 'active_hash'
 
 # 画像送信
 gem 'carrierwave'
