@@ -258,13 +258,19 @@ describe Address do
     end
 
     it "zipcodeがカタカナでは場合は登録できないこと" do
-      address = build(:address, zipcode: "カナ")
+      address = build(:address, zipcode: "カタカナ-カタカ")
       address.valid?(:validates_step3)
       expect(address.errors[:zipcode]).to include("は不正な値です")
     end
 
     it "zipcodeがひらがなでは場合は登録できないこと" do
-      address = build(:address, zipcode: "カナ")
+      address = build(:address, zipcode: "ひらがな-ひらが")
+      address.valid?(:validates_step3)
+      expect(address.errors[:zipcode]).to include("は不正な値です")
+    end
+
+    it "zipcodeが漢字では場合は登録できないこと" do
+      address = build(:address, zipcode: "漢字")
       address.valid?(:validates_step3)
       expect(address.errors[:zipcode]).to include("は不正な値です")
     end
@@ -287,18 +293,109 @@ describe Address do
       expect(address.errors[:zipcode]).to include("は不正な値です")
     end
 
-  
+    it "zipcodeが”-”ない場合は登録できないこと" do
+      address = build(:address, zipcode: "1234567")
+      address.valid?(:validates_step3)
+      expect(address.errors[:zipcode]).to include("は不正な値です")
+    end
 
+    it "zipcodeが3桁-4桁は登録できること" do
+      address = build(:address, zipcode: "123-4567")
+      expect(address).to be_valid(:validates_step3)
+    end
 
+    it "zipcodeが3桁は(旧住所)登録できること" do
+      address = build(:address, zipcode: "123")
+      expect(address).to be_valid(:validates_step3)
+    end
+
+    it "zipcodeが3桁2桁=5桁（旧住所）は登録できること" do
+      address = build(:address, zipcode: "123-45")
+      expect(address).to be_valid(:validates_step3)
+    end
+
+    it "tellが全角数字では場合は登録できないこと" do
+      address = build(:address, tell: "１２")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが半角英字では場合は登録できないこと" do
+      address = build(:address, tell: "abe")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが全角英字では場合は登録できないこと" do
+      address = build(:address, tell: "ABE")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが半角記号では場合は登録できないこと" do
+      address = build(:address, tell: "-")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが全角記号では場合は登録できないこと" do
+      address = build(:address, tell: "〜")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが漢字では場合は登録できないこと" do
+      address = build(:address, tell: "山田")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが全角カタカナでは場合は登録できないこと" do
+      address = build(:address, tell: "ヤマダ")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが半角カタカナでは場合は登録できないこと" do
+      address = build(:address, tell: "ﾔﾏﾀﾞ")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが半角数字9桁以下では場合は登録できないこと" do
+      address = build(:address, tell: "123456789")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが半角数字12桁以上では場合は登録できないこと" do
+      address = build(:address, tell: "012345678901")
+      address.valid?(:validates_step3)
+      expect(address.errors[:tell]).to include("は不正な値です")
+    end
+
+    it "tellが半角数字10桁で登録できること" do
+      address = build(:address, tell: "0123456789")
+      expect(address).to be_valid(:validates_step3)
+    end
+
+    it "tellが半角11桁数字で登録できること" do
+      address = build(:address, tell: "01234567890")
+      expect(address).to be_valid(:validates_step3)
+    end
+
+    it "prefectureがid=47(沖縄県)で登録できること" do
+      address = build(:address, prefecture: "47")
+      expect(address).to be_valid(:validates_step3)
+    end
+
+    it "prefectureがid=48(なし)で登録できない" do
+      address = build(:address, prefecture: "49")
+      address.valid?(:validates_step3)
+      expect(address.errors[:prefecture]).to include("は47以下の値にしてください")
+    end
   end
 end
-
-
-# it "nicknameがない場合は登録できないこと" do
-#   user = build(:user, nickname: "")
-#   user.valid?(:validates_step1)
-#   expect(user.errors[:nickname]).to include("を入力してください")
-# end
 
 RSpec.describe Address, type: :model do
   pending "add some examples to (or delete) #{__FILE__}"
