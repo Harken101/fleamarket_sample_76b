@@ -4,8 +4,8 @@ FactoryBot.define do
     first_name            {"孝之"}
     furigana_family_name  {"やまだ"}
     furigana_first_name   {"たかゆき"}
-    zipcode               {"123-4456"}
-    presence              {"1"}
+    zipcode               {"112-0001"}
+    prefecture            {"1"}
     city                  {"渋谷区"}
     street                {"恵比寿1-10-1"}
     tell                  {"0123456789"}
