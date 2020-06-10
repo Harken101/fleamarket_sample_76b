@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.images.build
+    @images = @item.images.build
   end
 
   def create  
