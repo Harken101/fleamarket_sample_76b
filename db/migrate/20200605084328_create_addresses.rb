@@ -15,7 +15,6 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
 
       t.timestamps
 
-      add_index :users, :nickname,             unique: true
     end
   end
 end
