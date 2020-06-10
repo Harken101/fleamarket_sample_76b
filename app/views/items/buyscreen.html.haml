@@ -1,0 +1,39 @@
+.main1
+  .main1__section
+    %h2.buy-head 購入内容の確認
+    .main1__section__inner
+      .main1__section__inner__items
+        .item-box
+          %h3.item_image
+            =image_tag "/image1.png"
+          .item-box-data
+            %p.item-name 仮りのアイテム
+            %p.item-price 
+              %span.money ¥4800
+              %span.tax (税込)送料込み
+    .main1__section__inner
+      .main1__section__inner__items
+        = form_with model: @item do |f|
+          %ul.price-table
+            %li.price-big
+              .merge-price
+                %span 支払い金額
+              .buy-price
+                %span ¥4,800
+          .item-info
+            .item-info-inner
+              %h3 支払い方法
+              -# カード情報を登録しているか、どうかでビューが変わる
+              .links
+                =icon("fas","star")
+                =link_to "登録してください","#"
+          .item-info
+            .item-info-inner
+              %h3 配送先
+              -# 同じく住所を登録しているかどうかでビューが変わる
+              .links
+                =icon("fas","star")
+                =link_to "登録してください","#"
+          .item-info
+            .item-info-button
+              %button(type="submit") 購入する
