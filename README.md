@@ -77,7 +77,7 @@ belongs_to :user
 ## item_imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image_url|string|null: false|
+|image|string|null: false|
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
