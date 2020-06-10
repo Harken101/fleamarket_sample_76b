@@ -4,7 +4,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @prefecture = Prefecture.all
     @item.images.build
   end
 
