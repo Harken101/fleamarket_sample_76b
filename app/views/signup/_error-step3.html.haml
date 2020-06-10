@@ -1,0 +1,6 @@
+- if @user.address.errors.any?
+  - unless @user.address.valid?(:validates_step3)
+    - if errors = @user.address.errors.full_messages
+      %ul
+        - errors.each do |error|
+          %li=error

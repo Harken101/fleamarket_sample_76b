@@ -3,15 +3,15 @@ class CreateItems < ActiveRecord::Migration[5.2]
     create_table :items do |t|
       t.string :name
       t.text :description
-      t.integer :status, null: false
-      t.integer :price, null: false
-      t.integer :payer, null: false
-      t.integer :preday, null: false
+      t.integer :status, defalut: 0
+      t.integer :price
+      t.integer :payer, defalut: 0
+      t.integer :preday, defalut: 0
       t.boolean :sold, default: true
       t.references :user
       t.references :postage_type
       t.references :category
-      t.references :prefecture, null: false
+      t.integer :prefecture
       t.timestamps
     end
   end

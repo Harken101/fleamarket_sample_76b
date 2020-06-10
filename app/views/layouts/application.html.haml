@@ -18,19 +18,27 @@
               = form.text_field :content, class: 'inputbox__text', placeholder: 'キーワード検索'
               %button(type="submit")
                 =icon("fas","search")
-
+                
         .header__inner__nav
           %ul.listsleft
             %li.listsleft__item
               =link_to "カテゴリー", "#", class:"catbtn"
             %li.listsleft__item2
               =link_to "ブランド", "#", class:"brandbtn"
-          %ul.listsright
-            %li.listsright__item
-              =link_to "ログイン", "#"
-            %li.listsright__item2
-              =link_to "新規会員登録", "#"
-    
+
+          -if user_signed_in?        
+            %ul.listsright
+              = link_to new_user_registration_path, method: :get,class:"listsright__item" do
+                %li マイページ<
+              = link_to destroy_user_session_path, method: :delete, class:"listsright__item" do
+                %li ログアウト
+          - else
+            %ul.listsright
+            = link_to user_session_path, method: :post,class:"listsright__item" do
+              %li ログイン
+            = link_to step1_signup_index_path, method: :get,class:"listsright__item" do
+              %li 新規会員登録
+
     = yield
     
     .appbanner
