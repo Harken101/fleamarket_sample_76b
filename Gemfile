@@ -96,3 +96,10 @@ gem 'payjp'
 
 #カテゴリーわけ
 gem 'ancestry'
+
+# 画像送信
+gem 'carrierwave'
+gem 'mini_magick'
+
+# JS
+gem 'jquery-rails'
