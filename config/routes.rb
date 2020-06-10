@@ -13,7 +13,8 @@ Rails.application.routes.draw do
       post 'complete_signup' # 登録完了後のページ
     end
   end
-  resources :items, only: [:new, :show] do
+  
+  resources :items, only: [:new, :create, :show] do
     collection do
       get :buyscreen
     end
