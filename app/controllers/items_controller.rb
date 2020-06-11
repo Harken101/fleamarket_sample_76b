@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @item = Item.find(params[:id])
+    @images = @item.images
   end
 
   def new
@@ -13,7 +15,6 @@ class ItemsController < ApplicationController
 
   def create  
     @item = Item.new(item_params)
-    binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -21,12 +22,13 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def buyscreen
   end
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :user_id, :postage_type_id, :category_id, :prefecture, images_attributes: [:image])
+    params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :postage_type_id, :category_id, :prefecture, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
 

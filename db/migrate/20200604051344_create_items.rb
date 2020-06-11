@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :payer, defalut: 0
       t.integer :preday, defalut: 0
       t.boolean :sold, default: true
-      t.references :user
+      t.references :user, foreign_key: true
       t.references :postage_type
       t.references :category
       t.integer :prefecture
