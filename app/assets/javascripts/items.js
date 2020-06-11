@@ -129,7 +129,7 @@ $(document).on('turbolinks:load', function(){
         //投稿編集時
         $(`#item_images_attributes_${id}__destroy`).prop('checked',true);
         //5個めが消されたらラベルを表示
-        if (count == 4) {
+        if (count == 5) {
           $('.label-content').show();
         }
 
