@@ -49,7 +49,6 @@ group :development, :test do
   gem 'capistrano-rails-console'
   # test用RSpec
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
 end
 
 group :development do
