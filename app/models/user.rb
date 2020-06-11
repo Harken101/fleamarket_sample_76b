@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
+  has_many :items
   # step1
   validates :nickname,presence: true, uniqueness: true, on: :validates_step1
   validates :email,presence: true, uniqueness: true, on: :validates_step1
