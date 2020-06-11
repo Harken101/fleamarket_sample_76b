@@ -103,3 +103,5 @@ gem 'mini_magick'
 
 # JS
 gem 'jquery-rails'
+
+gem 'dotenv-rails'
