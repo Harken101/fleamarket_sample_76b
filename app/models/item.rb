@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-  # belongs_to :category
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
 
@@ -24,5 +23,7 @@ class Item < ApplicationRecord
   enum item_statuses:{
     "新品、未使用":1, "目立った傷や汚れなし":2, "やや傷や汚れあり":3, "全体的に状態が悪い":4
   }
+ 
+  belongs_to :category
   
 end
