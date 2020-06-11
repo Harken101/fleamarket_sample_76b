@@ -26,10 +26,18 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-        if [:parent_id]
-          @children = Category.find(params[:parent_id]).children
-        #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
-        end
+       @children = Category.find(params[:parent_id]).children
+       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+      end
+    end
+  end
+
+  def search_two
+    respond_to do |format|
+      format.html
+      format.json do
+       @grandchildren = Category.find(params[:child_id]).children
+       #子ボックスのidから孫ボックスのidの配列を作成してインスタンス変数で定義
       end
     end
   end

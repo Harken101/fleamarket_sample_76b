@@ -11,7 +11,8 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references :user
       t.references :postage_type
       t.references :category
-      t.integer :prefecture
+      t.integer :category_ids
+      t.integer :prefecture_id
       t.timestamps
     end
   end
