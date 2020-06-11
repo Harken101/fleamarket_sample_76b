@@ -13,6 +13,8 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
+  validates :prefecture_id, presence: true, numericality: { less_than_or_equal_to: 47 }
+
   enum delivery_charge: {
     "送料込み（出品者負担)":1, "着払い（購入者負担)":2
   }
