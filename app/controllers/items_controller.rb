@@ -1,10 +1,13 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show, :edit, :update]
+  def set_item
+    @item = Item.find(params[:id])
+  end
   
   def index
   end
 
   def show
-    @item = Item.find(params[:id])
     @images = @item.images
   end
 
@@ -26,15 +29,12 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
-    unless 
-      @item.user_id == current_user.id
+    unless @item.user_id == current_user.id
       redirect_to  root_path
     end
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_update_params)
       redirect_to root_path
     else
@@ -65,7 +65,9 @@ class ItemsController < ApplicationController
   def buyscreen
   end
 
+  
   private
+
   def item_params
     params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :user_id, :postage_type_id, :category_id, :prefecture, images_attributes: [:image]).merge(user_id: current_user.id)
   end
