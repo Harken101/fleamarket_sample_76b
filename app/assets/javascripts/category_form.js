@@ -1,7 +1,7 @@
   $(function(){
     // optionを定義、「---」を加えないといけない
     function appendOption(category){
-      var html = `<option value="${category.id}">${category.name}</option>`;
+      var html = `<option value="${category.id}">${category.name}</option>`
       return html;
     }
     // 子セレクトボックスのhtml作成
