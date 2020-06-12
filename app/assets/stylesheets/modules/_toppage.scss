@@ -2,6 +2,21 @@
   box-sizing: border-box;
 }
 
+// フラッシュalert
+.notifications {
+  color: white;
+  text-align: center;  
+
+  .notice {
+    background-color: lightBlue;
+  }
+
+  .alert {
+    background-color: alert_orange;
+  }
+}
+
+
 // ヘッダー部分
 .header{
   padding: 0 60px;

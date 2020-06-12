@@ -28,8 +28,8 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-       @children = Category.find(params[:parent_id]).children
-       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+        @children = Category.find(params[:parent_id]).children
+        #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
       end
     end
   end
@@ -38,13 +38,19 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-       @grandchildren = Category.find(params[:child_id]).children
-       #子ボックスのidから孫ボックスのidの配列を作成してインスタンス変数で定義
+        @grandchildren = Category.find(params[:child_id]).children
+        #子ボックスのidから孫ボックスのidの配列を作成してインスタンス変数で定義
       end
     end
   end
 
   def buyscreen
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to root_path, notice: "商品が削除されました"
   end
 
   private
