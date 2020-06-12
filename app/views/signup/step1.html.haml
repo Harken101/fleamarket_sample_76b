@@ -1,4 +1,4 @@
-= form_for @user, url: step2_signup_index_path do |f|
+= form_for @user, url: step2_signup_index_path do |f| # form_tag?
 
   = hidden_field_tag :current_step, 'step1'
   = render partial: 'error-step1', locals: {user: @user} #ニックネームのエラー文のみ表示したい場合
