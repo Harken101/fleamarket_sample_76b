@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  
+  before_action :set_item, only: [:destroy, :show]
+
   def index
   end
 
   def show
-    @item = Item.find(params[:id])
     @images = @item.images
   end
 
@@ -48,9 +48,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to root_path, notice: "商品が削除されました"
+    if current_user.id == @item.user_id
+      @item.destroy
+      redirect_to root_path, notice: "商品が削除されました"     
+    else
+      redirect_to root_path, alert: "削除に失敗しました"
+    end
   end
 
   private
@@ -58,5 +61,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :postage_type_id, :category_id, :prefecture, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
-
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
