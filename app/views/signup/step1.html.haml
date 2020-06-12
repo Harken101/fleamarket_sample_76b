@@ -21,17 +21,26 @@
       = f.email_field :email, placeholder:"pc・携帯どちらでも可"
   .field
     .field-ls
-      .field-label
-        = f.label :password,"パスワード"
-      %span 必須
+    .field-label
+      = f.label :password,"パスワードを英数字で7文字以上入力してください"
     .field-input
-      = f.password_field :password, autocomplete: "off", placeholder: "7文字以上の半角英数字"
+      = f.password_field :password, autocomplete: "off"
+    -#   .field-label
+    -#     = f.label :password,"パスワード"
+    -#   %span 必須
+    -# .field-input
+    -#   = f.password_field :password, autocomplete: "off", placeholder: "7文字以上の半角英数字"
   .field
     .field-ls
-      .field-label
-        = f.label :password_confirmation, "パスワード確認"
-      %span 必須
+    .field
+    .field-label
+      = f.label :password_confirmation
     .field-input
-      = f.password_field :password_confirmation, autocomplete: "off",placeholder: "確認のためもう一度入力してください"
+      = f.password_field :password_confirmation, autocomplete: "off"
+    -#   .field-label
+    -#     = f.label :password_confirmation, "パスワード確認"
+    -#   %span 必須
+    -# .field-input
+    -#   = f.password_field :password_confirmation, autocomplete: "off",placeholder: "確認のためもう一度入力してください"
   .actions
     = f.submit '次へ進む', class: "submit-btn"
