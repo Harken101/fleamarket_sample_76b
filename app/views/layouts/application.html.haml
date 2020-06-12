@@ -29,7 +29,7 @@
           -if user_signed_in?        
             %ul.listsright
               = link_to new_user_registration_path, method: :get,class:"listsright__item" do
-                %li マイページ<
+                %li マイページ< #{current_user.nickname}
               = link_to destroy_user_session_path, method: :delete, class:"listsright__item" do
                 %li ログアウト
           - else
