@@ -49,7 +49,7 @@ belongs_to :user
 |price|integer|null: false|
 |payer|integer|null: false| <!-- enumを使う -->
 |preday|integer|null: false| <!-- enumを使う -->
-|sold|boolean|default: true, null: false|
+|sellar_id|integer|null: false, foreign_key: true|
 |category_id|integer|null: false, foreign_key: true|
 |postage_typ_id|integer|null: false, foreign_key: true|
 |prefecture|integer|null: false|
@@ -60,6 +60,7 @@ belongs_to :user
 - belongs_to :postage_typ
 - has_many :item_images
 - belongs_to_active_hash :prefecture
+- has_one :sellar 
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -81,3 +82,12 @@ belongs_to :user
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
+
+## sellarsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|buyer_id|integer|null: false|
+|item_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :item
+
