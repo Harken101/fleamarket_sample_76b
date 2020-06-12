@@ -14,9 +14,13 @@ Rails.application.routes.draw do
     end
   end
   
+
   resources :items, only: [:new, :create, :show, :edit, :update] do
+
     collection do
       get :buyscreen
+      get :search
+      get :search_two
     end
   end
 end

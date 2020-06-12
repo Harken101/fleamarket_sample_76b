@@ -3,18 +3,16 @@
     .main2__show__content
       .main2__show__content__top
         .itemsbox
-          %h2.itemsbox__name product3
+          %h2.itemsbox__name
+            = @item.name
           .itemsbox__body
             %ul.imagebox
               %li.images
-                =image_tag "/image1.png"
+                =image_tag @item.images[0].image.url, class:"big_image"
                 %ul
-                  %li
-                    =image_tag "/image1.png"
-                  %li
-                    =image_tag "/image1.png"
-                  %li
-                    =image_tag "/image1.png"
+                  - @images.each do |image|
+                    %li
+                      = image_tag image.image.url, class:"mini_image"
           .itemsbox__price
             %span.money ¥30000
             .itemsbox__price__data
@@ -66,3 +64,9 @@
               コメントする
         .main2__content__bottom
           =link_to "ベビー・キッズをもっと見る","#"
+        - if user_signed_in? && current_user.id == @item.user_id 
+          .edititem
+            = link_to "商品の編集", "#"
+        
+          .destroyitem
+            = link_to "この商品を削除する","#"
