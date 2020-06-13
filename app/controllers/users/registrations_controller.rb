@@ -10,45 +10,39 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    session[:user_params_after_step1] = user_params
-    @user = User.new(session[:user_params_after_step1])
-    unless @user.valid?(:validates_step1)
+    session[:user] = user_params
+    @user = User.new(session[:user])
+    # @user.build_address(session[:address_attributes])
+    unless @user.valid?
       render :new and return
     end
-    # binding.pry
-    @user = User.new
-    render :new_user2
-
-
-  end
-
-  def new_user2
-    session[:user_params_after_step2] = user_params
-    
-    session[:user_params_after_step2].merge!(session[:user_params_after_step1])
-    @user = User.new(session[:user_params_after_step2])
-    @user.build_address(session[:address_attributes])
-    unless @user.valid?(:validates_step2)
-      render :new and return
-    end
-    @user = User.new
-    @user.build_address #userモデルとaddressesモデルの関連付け。
+    @address = @user.build_address #userモデルとaddressesモデルの関連付け。
     render :new_address
-    # binding.pry
   end
 
   def create_address
-    @user = User.new(session[:user_params_after_step2])  # ここでuserモデルのsessionを引数で渡す。
-    @user.build_address(user_params[:address_attributes])# 今回のビューで入力された情報を代入。
+    @user = User.new(session[:user])  # ここでuserモデルのsessionを引数で渡す。
+    @address = Address.new(address_params)# 今回のビューで入力された情報を代入。
+    binding.pry
 
-    if @user.build_address(user_params[:address_attributes]).valid?(:validates_step3)
-      @user.save
-      session[:id] = @user.id  #ここでidをsessionに入れることでログイン状態に持っていける。
-      sign_in User.find(session[:id])
-      redirect_to root_path
-    else
-      # render '/signup/step3'
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
     end
+    @user.build_address(@address.attributes)
+    @user.save
+    session[:user].clear
+    sign_in(:user, @user)
+    # redirect_to create_address_path
+
+    # if @user.build_address(user_params[:address_attributes]).valid?(:validates_step3)
+    #   @user.save
+    #   session[:id] = @user.id  #ここでidをsessionに入れることでログイン状態に持っていける。
+    #   sign_in User.find(session[:id])
+    #   redirect_to root_path
+    # else
+      # render '/signup/step3'
+  # end
   end
 
 
@@ -118,5 +112,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       address_attributes: [:id, :family_name, :first_name, :furigana_family_name, :furigana_first_name,
         :prefecture, :zipcode, :city, :street, :mansion, :tell]
     )
-  end
+    end
+
+    def address_params
+      params.require(:address).permit(
+        :family_name, :first_name, :furigana_family_name, :furigana_first_name, :prefecture, :zipcode, :city, :street, :mansion, :tell)
+    end
+
 end
