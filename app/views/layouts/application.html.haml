@@ -36,7 +36,7 @@
           -if user_signed_in?        
             %ul.listsright
               = link_to new_user_registration_path, method: :get,class:"listsright__item" do
-                %li マイページ<
+                %li マイページ< #{current_user.nickname}
               = link_to destroy_user_session_path, method: :delete, class:"listsright__item" do
                 %li ログアウト
           - else
@@ -90,4 +90,4 @@
       %p ©️ FURIMA
     
     .purchasbtn
-      = link_to image_tag(src= "/syupin1.png", class: "syupin"), "#"
+      = link_to image_tag(src= "/syupin1.png", class: "syupin"), new_item_path

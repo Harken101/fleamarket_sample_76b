@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
   def index
+    @items = Item.all
   end
 
   def show
@@ -77,7 +78,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :user_id, :postage_type_id, :category_id, :prefecture, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :postage_type_id, :category_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def item_update_params
