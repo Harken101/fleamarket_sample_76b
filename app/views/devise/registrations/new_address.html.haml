@@ -1,0 +1,72 @@
+= form_for  @address  do |f|
+  -# = hidden_field_tag :current_step, 'step3'
+  -# = render partial: 'error-step3', locals: {address: @user} #ニックネームのエラー文のみ表示したい場合
+  -# = f.fields_for :address do |a|
+  .l-single-container
+    %h2 会員情報入力
+  .field
+    .field-ls
+      .field-label
+        = f.label :family_name, "名字"
+      %span 必須
+    .field-input
+      = f.text_field :family_name, autofocus: true, placeholder:"例）山田"
+  .field
+    .field-ls
+      .field-label
+        = f.label :first_name, "名前"
+      %span 必須
+    .field-input
+      = f.text_field :first_name, autofocus: true, placeholder:"例）太郎"
+    %p.furigana ふりがなで入力してください
+  .field
+    .field-ls
+      .field-label
+        = f.label :furigana_family_name, "名字"
+      %span 必須
+    .field-input
+      = f.text_field :furigana_family_name, autofocus: true, placeholder:"例）やまだ"
+  .field
+    .field-ls
+      .field-label
+        = f.label :furigana_first_name, "名前"
+      %span 必須
+    .field-input
+      = f.text_field :furigana_first_name, autofocus: true, placeholder:"例）たろう"
+  .field
+    .field-ls
+      .field-label
+        = f.label :zipcode, "郵便番号"
+      %span 必須
+    .field-input
+      = f.text_field :zipcode, autofocus: true, placeholder:"例）000-0000"
+  .field
+    .field-ls
+      .field-label
+        = f.label :prefecture, "都道府県"
+      %span 必須
+    .field-input
+      = f.collection_select :prefecture, Prefecture.all, :id, :name, prompt: "選択してください"
+  .field
+    .field-ls
+      .field-label
+        = f.label :city, "市区町村"
+      %span 必須
+    .field-input
+      = f.text_field :city, placeholder:"例）○○市○○区"
+  .field
+    .field-ls
+      .field-label
+        = f.label :street, "番地"
+      %span 必須
+    .field-input
+      = f.text_field :street, placeholder:"例）1-1-1"
+  .field
+    .field-ls
+      .field-label
+        = f.label :tell, "電話番号もしくは携帯電話番号（ハイフンなし）"
+      %span 必須
+    .field-input
+      = f.text_field :tell, placeholder:"例）0001112222"
+  .actions 
+    = f.submit '登録を完了する'

@@ -9,10 +9,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :preday, defalut: 0
       t.boolean :sold, default: true
       t.references :saler
-      t.references :user
+      t.references :user, foreign_key: true
       t.references :postage_type
       t.references :category
-      t.integer :prefecture
+      t.integer :prefecture_id
       t.timestamps
     end
   end

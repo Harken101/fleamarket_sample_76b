@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  # get 'purchase/index'
-  # get 'purchase/done'
-  # get 'card/new'
-  # get 'card/show'
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+  devise_scope :user do
+    # post 'new_users2', to: 'users/registrations#new_user2'
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+  end
   resources :users, only: [:edit, :update, :show]
-  root 'toppage#index'
+  root 'items#index'
     resources :address, only: [:create,:edit, :update]
   get "signup", to: "signup#index"
   resources :signup do
@@ -26,7 +29,7 @@ Rails.application.routes.draw do
   end
 
   
-  resources :items, only: [:new, :create, :show] do
+  resources :items  do
     resources :purchase, only: [:index] do
       collection do
         get 'index', to: 'purchase#index'
@@ -36,6 +39,9 @@ Rails.application.routes.draw do
     end
     collection do
       get :buyscreen
+      get :search
+      get :search_two
     end
   end
+  
 end
