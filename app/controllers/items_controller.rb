@@ -1,6 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:destroy, :show]
-
+  
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  def set_item
+    @item = Item.find(params[:id])
+  end
   def index
   end
 
@@ -18,6 +21,21 @@ class ItemsController < ApplicationController
   def create  
     @item = Item.new(item_params)
     if @item.save
+      redirect_to root_path
+
+    else
+      render  new_item_path
+    end
+  end
+
+  def edit
+    unless @item.user_id == current_user.id
+      redirect_to  root_path
+    end
+  end
+
+  def update
+    if @item.update(item_update_params)
       redirect_to root_path
     else
       redirect_to  new_item_path
@@ -57,8 +75,16 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def item_params
-    params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :postage_type_id, :category_id, :prefecture, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :user_id, :postage_type_id, :category_id, :prefecture, images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def item_update_params
+    params.require(:item).permit(
+      :name, :description, :status, :price, :payer, :preday, :sold, :postage_type_id, :category_id, :prefecture,
+      [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
+
   end
 
   def set_item
