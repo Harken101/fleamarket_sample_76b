@@ -8,6 +8,13 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+
+    -# フラッシュ情報
+    .notifications
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: key)
+
+    
   
     .header
       .header__inner
@@ -36,7 +43,7 @@
             %ul.listsright
             = link_to user_session_path, method: :post,class:"listsright__item" do
               %li ログイン
-            = link_to step1_signup_index_path, method: :get,class:"listsright__item" do
+            = link_to  "/users/sign_up", method: :get,class:"listsright__item" do
               %li 新規会員登録
 
     = yield
