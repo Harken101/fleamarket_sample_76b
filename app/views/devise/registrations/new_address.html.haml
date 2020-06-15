@@ -1,7 +1,11 @@
 = form_for  @address  do |f|
-  -# = hidden_field_tag :current_step, 'step3'
-  -# = render partial: 'error-step3', locals: {address: @user} #ニックネームのエラー文のみ表示したい場合
-  -# = f.fields_for :address do |a|
+  - if @address.errors.any?
+    - unless @address.valid?
+      - if errors = @address.errors.full_messages
+        %ul.error_box
+          - errors.each do |error|
+            %li.error_box
+              =error
   .l-single-container
     %h2 会員情報入力
   .field

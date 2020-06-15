@@ -12,7 +12,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     session[:user] = user_params
     @user = User.new(session[:user])
-    # @user.build_address(session[:address_attributes])
     unless @user.valid?
       render :new and return
     end
@@ -23,7 +22,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create_address
     @user = User.new(session[:user])  # ここでuserモデルのsessionを引数で渡す。
     @address = Address.new(address_params)# 今回のビューで入力された情報を代入。
-    binding.pry
+
 
     unless @address.valid?
       flash.now[:alert] = @address.errors.full_messages
@@ -33,16 +32,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.save
     session[:user].clear
     sign_in(:user, @user)
-    # redirect_to create_address_path
-
-    # if @user.build_address(user_params[:address_attributes]).valid?(:validates_step3)
-    #   @user.save
-    #   session[:id] = @user.id  #ここでidをsessionに入れることでログイン状態に持っていける。
-    #   sign_in User.find(session[:id])
-    #   redirect_to root_path
-    # else
-      # render '/signup/step3'
-  # end
   end
 
 
