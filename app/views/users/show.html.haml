@@ -3,9 +3,9 @@
     .content
       .mypage-top
         .user-icon
-          -# =image_tag "#", size: '60*60',class:"user-icon"
+          =image_tag(src= "/assets/member_photo_noimage_thumb.png", size: '60*60',class:"user-icon")
         .user-name
-          =link_to "a","#"
+          =link_to @user.nickname ,"#"
         .user-re
           .user-review
             =link_to "評価 0","#"
@@ -22,7 +22,7 @@
       %ul.mypage-tab-sign
         %li.mypage-item-link
           .item-link
-            =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "merukari-img",width:"47.99px",height:"47.99px"
+            =image_tag(src= "/assets/b4bf99b9b29b9c891ee0fa5bb8f07a62.png",class: "merukari-img",width:"47.99px",height:"47.99px")
             .item-link__textbody
               .item-link__body__text
                 =link_to "text","#"
@@ -33,7 +33,7 @@
                 .right-y
         %li.mypage-item-link
           .item-link
-            =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "merukari-img",width:"47.99px",height:"47.99px"
+            =image_tag(src= "/assets/b4bf99b9b29b9c891ee0fa5bb8f07a62.png",class: "merukari-img",width:"47.99px",height:"47.99px")
             .item-link__textbody
               =link_to "text","#"
               .item-link__body
@@ -42,7 +42,7 @@
                 %span 1時間前
         %li.mypage-item-link
           .item-link
-            =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "merukari-img",width:"47.99px",height:"47.99px"
+            =image_tag(src= "/assets/b4bf99b9b29b9c891ee0fa5bb8f07a62.png",class: "merukari-img",width:"47.99px",height:"47.99px")
             .item-link__textbody
               .item-link__body__text
                 =link_to "text","#"
@@ -92,7 +92,8 @@
           %li.profile
             = link_to"プロフィール", "#" 
           %li.edit_address
-            = link_to"発送元・お届け先住所変更", "#"
+            = link_to user_path method: :get do
+              発送元・お届け先住所変更
           %li.peyment
             = link_to"お支払い方法", "#"  
           %li.mail_password
