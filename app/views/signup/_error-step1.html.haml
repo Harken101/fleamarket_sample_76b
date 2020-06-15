@@ -1,6 +1,0 @@
-- if user.errors.any?
-  - unless user.valid?(:validates_step1)
-    - if errors = user.errors.full_messages
-      %ul
-        - errors.each do |error|
-          %li=error

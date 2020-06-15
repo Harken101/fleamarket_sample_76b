@@ -1,6 +1,11 @@
-= form_for @user, url: user_registration_path do |f| # form_tag?
+= form_for @user, url: user_registration_path, id:"formnaoya" do |f|
 
-  -# = hidden_field_tag :current_step, 'step1'
+  - if @user.errors.any?
+    - unless @user.valid?
+      - if errors = @user.errors.full_messages
+        %ul
+          - errors.each do |error|
+            %li=error
   -# = render partial: 'error-step1', locals: {user: @user} #ニックネームのエラー文のみ表示したい場合
 
   .l-single-container
