@@ -103,3 +103,30 @@
   }
 }
 }
+
+// 登録完了ページ
+.l-single-head-registration{
+  padding: 32px;
+  width: 636px;
+  height: 33px;
+  text-shadow: none;
+  font-size: 22px;
+  text-align: center;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ,Meiryo, sans-serif;
+  border-bottom: solid #b3d4fc;
+  margin: auto;
+  line-height: 22px;
+}
+.l-single-body-information{
+  width: 636px;
+  height: 100px;
+  font-size: 22px;
+  text-align: center;
+  margin: auto;
+  &__link{
+    text-decoration: none;
+    color: black;
+    font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ,Meiryo, sans-serif;
+    
+  }
+}
