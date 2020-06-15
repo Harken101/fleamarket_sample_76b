@@ -9,13 +9,6 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-
-    -# フラッシュ情報
-    .notifications
-      - flash.each do |key, value|
-        = content_tag(:div, value, class: key)
-
-    
   
     .header
       .header__inner
@@ -37,14 +30,14 @@
           -if user_signed_in?        
             %ul.listsright
               = link_to new_user_registration_path, method: :get,class:"listsright__item" do
-                %li マイページ< #{current_user.nickname}
+                %li マイページ<
               = link_to destroy_user_session_path, method: :delete, class:"listsright__item" do
                 %li ログアウト
           - else
             %ul.listsright
             = link_to user_session_path, method: :post,class:"listsright__item" do
               %li ログイン
-            = link_to  "/users/sign_up", method: :get,class:"listsright__item" do
+            = link_to step1_signup_index_path, method: :get,class:"listsright__item" do
               %li 新規会員登録
 
     = yield
@@ -91,4 +84,4 @@
       %p ©️ FURIMA
     
     .purchasbtn
-      = link_to image_tag(src= "/syupin1.png", class: "syupin"), new_item_path
+      = link_to image_tag(src= "/syupin1.png", class: "syupin"), "#"

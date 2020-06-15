@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_030410) do
     t.bigint "user_id"
     t.bigint "postage_type_id"
     t.bigint "category_id"
-    t.integer "prefecture_id"
+    t.integer "prefecture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
@@ -97,5 +97,4 @@ ActiveRecord::Schema.define(version: 2020_06_11_030410) do
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "users"
 end
