@@ -10,7 +10,7 @@ class SignupController < ApplicationController
     def save_step1_to_session
       session[:user_params_after_step1] = user_params
       @user = User.new(session[:user_params_after_step1])
-      # render '/signup/step1' unless @user.valid?(:validates_step1)
+      render '/signup/step1' unless @user.valid?(:validates_step1)
     end 
   
     def step2
@@ -59,6 +59,7 @@ def user_params
     :furigana_family_name,
     :furigana_first_name,
     :birthday,
-    address_attributes: [:id, :family_name, :first_name, :furigana_family_name, :furigana_first_name,:prefecture, :zipcode, :city, :street, :mansion, :tell]
+    address_attributes: [:id, :family_name, :first_name, :furigana_family_name, :furigana_first_name,
+      :prefecture, :zipcode, :city, :street, :mansion, :tell]
   )
 end
