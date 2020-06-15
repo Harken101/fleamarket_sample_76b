@@ -54,8 +54,10 @@
                   %th 発送日の目安
                   %td
                     = Item.delivery_days.keys.to_a[@item.preday]
-          %button.buybutton(onclick="#")
-            購入する
+         
+          - if user_signed_in? && current_user.id != @item.user_id 
+            %button.buybutton(onclick="#")
+              購入する
         .comments
           = form_with model: @comment do |f| 
             %textarea{name: "text"}
