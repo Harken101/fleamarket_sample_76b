@@ -14,44 +14,46 @@
                     %li
                       = image_tag image.image.url, class:"mini_image"
           .itemsbox__price
-            %span.money ¥30000
+            %span.money
+              ¥
+              = @item.price
             .itemsbox__price__data
               %span （税込み）
               %span 送料込み
           .itemsbox__explan
-            %p 説明です説明です説明です説明です説明です説明です説明です説明です
+            %p
+              = @item.description
           .itemsbox__table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td hoge
+                  %td
+                    = @item.user.nickname
                 %tr
                   %th カテゴリー
                   %td
-                    =link_to "登録してください","#"
+                    = link_to @item.category.name, "#"
                     %br
-                    =link_to "登録してください","#"
+                    = link_to @children.name, "#"
                     %br
-                    =link_to "登録してください","#"
-                %tr
-                  %th ブランド
-                  %td
-                %tr
-                  %th 商品のサイズ
-                  %td
+                    =link_to @grandchildren.name,"#"
                 %tr
                   %th 商品の状態
-                  %td 未使用なう
+                  %td
+                    = Item.item_statuses.keys.to_a[@item.status]
                 %tr
                   %th 配送料の負担
-                  %td 送料込み（出品者負担）
+                  %td
+                    = Item.delivery_charges.keys.to_a[@item.payer]
                 %tr
                   %th 発送元の地域
                   %td
+                    = @item.prefecture.name
                 %tr
                   %th 発送日の目安
-                  %td 4-7日で発送
+                  %td
+                    = Item.delivery_days.keys.to_a[@item.preday]
 
         .comments
           = form_with model: @comment do |f| 
@@ -66,7 +68,7 @@
           =link_to "ベビー・キッズをもっと見る","#"
         - if user_signed_in? && current_user.id == @item.user_id 
           .edititem
-            = link_to "商品の編集", "#"
+            = link_to "商品の編集",edit_item_path(@item.id), method: :get
         
           .destroyitem
             = link_to "この商品を削除する",item_path(@item.id), method: :delete
