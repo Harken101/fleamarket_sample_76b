@@ -5,7 +5,8 @@
       - if errors = @user.errors.full_messages
         %ul
           - errors.each do |error|
-            %li=error
+            %li.error_box
+              = error
   -# = render partial: 'error-step1', locals: {user: @user} #ニックネームのエラー文のみ表示したい場合
 
   .l-single-container

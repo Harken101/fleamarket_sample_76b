@@ -2,9 +2,10 @@
   - if @address.errors.any?
     - unless @address.valid?
       - if errors = @address.errors.full_messages
-        %ul
+        %ul.error_box
           - errors.each do |error|
-            %li=error
+            %li.error_box
+              =error
   .l-single-container
     %h2 会員情報入力
   .field

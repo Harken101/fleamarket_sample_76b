@@ -1,3 +1,7 @@
+.error_box{
+  text-align: center;
+}
+
 .l-single-container{
   text-align: center;
   height: 59px;
@@ -37,14 +41,14 @@
     }
     p{
       color: #888888;
-     }
-     select{
+    }
+    select{
       height: 48px;
       width: 15%;
       border-radius: 4px;
       border: 1px solid #ccc;
       margin-right: 20px;
-     }
+    }
   }
 
 }
