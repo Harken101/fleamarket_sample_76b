@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_035809) do
     t.bigint "user_id"
     t.bigint "postage_type_id"
     t.bigint "category_id"
-    t.integer "prefecture"
+    t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"

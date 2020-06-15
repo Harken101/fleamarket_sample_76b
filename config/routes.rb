@@ -7,11 +7,10 @@ Rails.application.routes.draw do
     post 'addresses', to: 'users/registrations#create_address'
   end
   resources :users, only: [:edit, :update, :show]
-  root 'toppage#index'
-  resources :address, only: [:create,:edit, :update]
-  resources :cards, only: [:create, :edit, :update]
-  
-  resources :items, only: [:new, :create, :show, :edit] do
+  root 'items#index'
+    resources :address, only: [:create,:edit, :update]
+    resources :cards, only: [:create, :edit, :update]
+  resources :items  do
     collection do
       get :buyscreen
       get :search
