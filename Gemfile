@@ -104,3 +104,6 @@ gem 'mini_magick'
 
 # JS
 gem 'jquery-rails'
+
+# S3に画像上げるよう
+gem 'fog-aws'
