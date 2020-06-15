@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
-  
+  before_action :set_item, only: [:destroy, :show]
+
   def index
   end
 
   def show
-    @item = Item.find(params[:id])
     @images = @item.images
   end
 
@@ -28,8 +28,8 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-       @children = Category.find(params[:parent_id]).children
-       #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
+        @children = Category.find(params[:parent_id]).children
+        #親ボックスのidから子ボックスのidの配列を作成してインスタンス変数で定義
       end
     end
   end
@@ -38,8 +38,8 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html
       format.json do
-       @grandchildren = Category.find(params[:child_id]).children
-       #子ボックスのidから孫ボックスのidの配列を作成してインスタンス変数で定義
+        @grandchildren = Category.find(params[:child_id]).children
+        #子ボックスのidから孫ボックスのidの配列を作成してインスタンス変数で定義
       end
     end
   end
@@ -47,10 +47,21 @@ class ItemsController < ApplicationController
   def buyscreen
   end
 
+  def destroy
+    if current_user.id == @item.user_id
+      @item.destroy
+      redirect_to root_path, notice: "商品が削除されました"     
+    else
+      redirect_to root_path, alert: "削除に失敗しました"
+    end
+  end
+
   private
   def item_params
     params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :postage_type_id, :category_id, :prefecture, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
-
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end

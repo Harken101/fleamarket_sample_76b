@@ -8,6 +8,13 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+
+    -# フラッシュ情報
+    .notifications
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: key)
+
+    
   
     .header
       .header__inner
