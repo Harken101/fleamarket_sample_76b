@@ -8,7 +8,6 @@ class User < ApplicationRecord
   validates :nickname,presence: true, uniqueness: true
   validates :email,presence: true, uniqueness: true
   
-  # step2
   validates :family_name,presence: true, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
   validates :first_name,presence: true, format: { with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
   validates :furigana_family_name,presence: true,format: { with: /\A[ぁ-んー－]+\z/}

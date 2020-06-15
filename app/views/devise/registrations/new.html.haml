@@ -1,4 +1,4 @@
-= form_for @user, url: user_registration_path, id:"formnaoya" do |f|
+= form_for @user, url: user_registration_path do |f|
 
   - if @user.errors.any?
     - unless @user.valid?
@@ -7,7 +7,6 @@
           - errors.each do |error|
             %li.error_box
               = error
-  -# = render partial: 'error-step1', locals: {user: @user} #ニックネームのエラー文のみ表示したい場合
 
   .l-single-container
     %h2 会員情報入力

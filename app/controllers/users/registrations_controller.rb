@@ -20,18 +20,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create_address
-    # @user = User.new(session[:user])  # ここでuserモデルのsessionを引数で渡す。
-    # @address = Address.new(address_params)# 今回のビューで入力された情報を代入。
+    @user = User.new(session[:user])  # ここでuserモデルのsessionを引数で渡す。
+    @address = Address.new(address_params)# 今回のビューで入力された情報を代入。
 
 
-    # unless @address.valid?
-    #   flash.now[:alert] = @address.errors.full_messages
-    #   render :new_address and return
-    # end
-    # @user.build_address(@address.attributes)
-    # @user.save
-    # session[:user].clear
-    # sign_in(:user, @user)
+    unless @address.valid?
+      flash.now[:alert] = @address.errors.full_messages
+      render :new_address and return
+    end
+    @user.build_address(@address.attributes)
+    @user.save
+    session[:user].clear
+    sign_in(:user, @user)
   end
 
 
