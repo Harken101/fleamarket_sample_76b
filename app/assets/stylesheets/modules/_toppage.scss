@@ -2,6 +2,20 @@
   box-sizing: border-box;
 }
 
+// フラッシュalert
+.notifications {
+  color: white;
+  text-align: center;  
+  .notice {
+      background-color: lightblue;
+  }
+  .alert {
+    background-color: orange;
+  }
+}
+
+
+
 // ヘッダー部分
 .header{
   padding: 0 60px;
@@ -359,10 +373,12 @@
         width: 780px;
         margin: 26px auto;
         display: flex;
-        justify-content: space-around;
+        flex-wrap: wrap;
+
         &__list{
           width: 220px;
           display: inline-block;
+          margin-bottom: 20px;
           //商品の画像と説明、どちらをクリックしてもリンクで飛ぶ
           a{
             background-color: #fff;

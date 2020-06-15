@@ -104,7 +104,7 @@
             }
           }
         
-          //file_fieldのcss
+          // file_fieldのcss
           .hidden-content {
             .hidden-field {
               display: none;
@@ -153,12 +153,12 @@
         }
       }
       &__thedetails{
-        height: 350px;
+        height: 390px;
         border-bottom: 1px solid rgb(204, 204, 204);
         &__title{
           width: 80%;
           margin: 0 auto;
-          padding-top: 40px;
+          padding-top: 20px;
           color: rgb(136, 136, 136);
           font-size: 14px;
           font-weight: 600;
@@ -169,17 +169,19 @@
           display: flex;
           justify-content: start;
           margin: 0 auto;
-          margin-bottom: 20px;
-          padding-top: 24px;
+          margin-bottom: 14px;
+          padding-top: 16px;
         }
         &__category{
-          width: 80%;
-          height: 48px;
-          display: block;
-          margin: 0 auto;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          padding: 0 16px;
+          select{
+            width: 80%;
+            height: 48px;
+            display: block;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 0 16px;
+          }
         }
         &__status{
           width: 80%;

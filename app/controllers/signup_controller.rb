@@ -59,6 +59,7 @@ def user_params
     :furigana_family_name,
     :furigana_first_name,
     :birthday,
-    address_attributes: [:id, :family_name, :first_name, :furigana_family_name, :furigana_first_name,:prefecture, :zipcode, :city, :street, :mansion, :tell]
+    address_attributes: [:id, :family_name, :first_name, :furigana_family_name, :furigana_first_name,
+      :prefecture, :zipcode, :city, :street, :mansion, :tell]
   )
 end

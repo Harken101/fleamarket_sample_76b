@@ -23,12 +23,13 @@ Rails.application.routes.draw do
 
   
   resources :items, only: [:new, :create, :show] do
-    resources :purchase, only: [:index] do
       collection do
         get 'index', to: 'purchase#index'
         post 'pay', to: 'purchase#pay'
         get 'done', to: 'purchase#done'
       end
+    collection do
+      get :buyscreen
     end
   end
 end
