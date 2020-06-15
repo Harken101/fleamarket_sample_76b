@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'purchase/index'
-  get 'purchase/done'
-  get 'card/new'
-  get 'card/show'
+  # get 'purchase/index'
+  # get 'purchase/done'
+  # get 'card/new'
+  # get 'card/show'
   devise_for :users
   resources :users, only: [:edit, :update, :show]
   root 'toppage#index'
@@ -25,15 +25,15 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchase, only: [:index] do
-    collection do
-      get 'index', to: 'purchase#index'
-      post 'pay', to: 'purchase#pay'
-      get 'done', to: 'purchase#done'
-    end
-  end
   
   resources :items, only: [:new, :create, :show] do
+    resources :purchase, only: [:index] do
+      collection do
+        get 'index', to: 'purchase#index'
+        post 'pay', to: 'purchase#pay'
+        get 'done', to: 'purchase#done'
+      end
+    end
     collection do
       get :buyscreen
     end

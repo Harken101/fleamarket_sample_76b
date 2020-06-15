@@ -104,4 +104,5 @@ gem 'mini_magick'
 # JS
 gem 'jquery-rails'
 
+# APIの管理
 gem 'dotenv-rails'

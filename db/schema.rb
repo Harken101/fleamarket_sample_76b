@@ -30,11 +30,12 @@ ActiveRecord::Schema.define(version: 2020_06_11_030410) do
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "customer_id"
-    t.string "card_id"
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_030410) do
     t.integer "payer"
     t.integer "preday"
     t.boolean "sold", default: true
+    t.bigint "saler_id"
     t.bigint "user_id"
     t.bigint "postage_type_id"
     t.bigint "category_id"
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_030410) do
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["postage_type_id"], name: "index_items_on_postage_type_id"
+    t.index ["saler_id"], name: "index_items_on_saler_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -92,5 +95,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_030410) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
 end
