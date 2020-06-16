@@ -49,6 +49,7 @@ group :development, :test do
   gem 'capistrano-rails-console'
   # test用RSpec
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -104,5 +105,5 @@ gem 'mini_magick'
 # JS
 gem 'jquery-rails'
 
-# APIの管理
-gem 'dotenv-rails'
+# S3に画像上げるよう
+gem 'fog-aws'
