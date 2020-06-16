@@ -56,10 +56,14 @@ ActiveRecord::Schema.define(version: 2020_06_10_035809) do
     t.bigint "user_id"
     t.bigint "postage_type_id"
     t.bigint "category_id"
+    t.bigint "child_category_id"
+    t.bigint "grandchild_category_id"
     t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["child_category_id"], name: "index_items_on_child_category_id"
+    t.index ["grandchild_category_id"], name: "index_items_on_grandchild_category_id"
     t.index ["postage_type_id"], name: "index_items_on_postage_type_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end

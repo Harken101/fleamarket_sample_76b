@@ -5,8 +5,9 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
-  validates :name, presence: true
-  validates :description, presence: true
+  validates :name, presence: true, length: {maximum: 40}
+  validates :description, presence: true, length: {maximum: 1000}
+  validates :price, length: {maximum: 10}
   
   #アソシエーションを組んであるモデルに対してのバリデーションを組む
   validates_associated :images
