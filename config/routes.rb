@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get :buyscreen
       get :search
       get :search_two
+      get :items_search
     end
   end
 end

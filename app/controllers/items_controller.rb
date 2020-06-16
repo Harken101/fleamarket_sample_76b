@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
   def index
     @items = Item.all
   end
@@ -63,6 +64,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def buyscreen
   end
 
@@ -73,6 +75,10 @@ class ItemsController < ApplicationController
     else
       redirect_to root_path, alert: "削除に失敗しました"
     end
+  end
+
+  def items_search
+    @items = Item.search(params[:search])
   end
 
   private
