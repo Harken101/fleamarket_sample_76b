@@ -3,16 +3,18 @@
     .main2__show__content
       .main2__show__content__top
         .itemsbox
-          %h2.itemsbox__name
-            = @item.name
+          %h2.itemsbox__name product3
           .itemsbox__body
             %ul.imagebox
               %li.images
-                =image_tag @item.images[0].image.url, class:"big_image"
+                =image_tag "/image1.png"
                 %ul
-                  - @images.each do |image|
-                    %li
-                      = image_tag image.image.url, class:"mini_image"
+                  %li
+                    =image_tag "/image1.png"
+                  %li
+                    =image_tag "/image1.png"
+                  %li
+                    =image_tag "/image1.png"
           .itemsbox__price
             %span.money
               ¥
