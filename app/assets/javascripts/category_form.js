@@ -1,5 +1,5 @@
   $(function(){
-    // optionを定義、「---」を加えないといけない
+    // optionを定義、categoryに取得した値を入れていく
     function appendOption(category){
       var html = `<option value="${category.id}">${category.name}</option>`;
       return html;
