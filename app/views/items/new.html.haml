@@ -45,8 +45,9 @@
               カテゴリー
             .required
               必須
-          = f.text_field :category_id, placeholder: "選択してください", class: 'new-item-content__thedetails__category'
-          -# 追加機能で実装予定
+          .new-item-content__thedetails__category
+            = f.collection_select :category_id, @parents, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "category_select" }
+          -# 追加機能で実装予定！
           -# .new-item-content__thedetails__box
           -#   .new-item-content__item__box__title
           -#     ブランド
