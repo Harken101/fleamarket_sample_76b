@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+  }
+  devise_scope :user do
+    get 'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+  end
   resources :users, only: [:edit, :update, :show]
   root 'toppage#index'
     resources :address, only: [:create,:edit, :update]
-  get "signup", to: "signup#index"
-  resources :signup do
-    collection do
-      get 'step1' #ユーザー名とパスワード入力
-      post 'step2' #本人確認情報入力
-      post 'step3' #お届け先情報（address）を入力
-      post 'complete_signup' # 登録完了後のページ
-    end
-  end
 
   resources :card, only: [:new, :show] do
     collection do
@@ -21,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  
+
   resources :items, only: [:new, :create, :show] do
     resources :purchase, only: [:index] do
       collection do

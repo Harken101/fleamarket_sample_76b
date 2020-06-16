@@ -1,60 +1,77 @@
-#account-page.account-page
-  .account-page__inner.clearfix
-    .account-page__inner--left.account-page__header
-      %h2 Create Account
-      %h5 新規アカウントの作成
-      = render "devise/shared/links"
-    .account-page__inner--right.user-form
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = devise_error_messages!
-        %h6 ユーザー情報
-        .field
-          .field-label
-            = f.label :nickname,"ニックネーム"
-          .field-input
-            = f.text_field :nickname, autofocus: true
-        .field
-          .field-label
-            = f.label :email
-          .field-input
-            = f.email_field :email
-        .field
-          .field-label
-            = f.label :password,"パスワードを英数字で7文字以上入力してください"
-          .field-input
-            = f.password_field :password, autocomplete: "off"
-        .field
-          .field-label
-            = f.label :password_confirmation
-          .field-input
-            = f.password_field :password_confirmation, autocomplete: "off"
+= form_for @user, url: user_registration_path do |f|
 
-        %h6 本人確認情報
-        .field
-          .field-label
-            = f.label :family_name, "名字"
-          .field-input
-            = f.text_field :family_name, autofocus: true
-        .field
-          .field-label
-            = f.label :first_name, "名前"
-          .field-input
-            = f.text_field :first_name, autofocus: true
-          %p.furigana ふりがなで入力してください
-          .field
-            .field-label
-              = f.label :furigana_family_name, "名字"
-            .field-input
-              = f.text_field :furigana_family_name, autofocus: true
-          .field
-            .field-label
-              = f.label :furigana_first_name, "名前"
-            .field-input
-              = f.text_field :furigana_first_name, autofocus: true
-          .field
-            .field-label
-              = f.label :birthday, "生年月日を入力してくだい"
-            .field-input
-              = f.date_select :birthday, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
-        .actions
-          = f.submit "Create Account", class: 'btn'
+  - if @user.errors.any?
+    - unless @user.valid?
+      - if errors = @user.errors.full_messages
+        %ul
+          - errors.each do |error|
+            %li.error_box
+              = error
+  .l-single-container
+    %h2 会員情報入力
+  .field
+    .field-ls
+      .field-label
+        = f.label :nickname,"ニックネーム"
+      %span 必須
+    .field-input
+      = f.text_field :nickname, autofocus: true, placeholder:"例)フリマ太郎"
+  .field
+    .field-ls
+      .field-label
+        = f.label :email
+      %span 必須
+    .field-input
+      = f.email_field :email, placeholder:"pc・携帯どちらでも可"
+  .field
+    .field-ls
+      .field-label
+        = f.label :password,"パスワード"
+      %span 必須
+    .field-input
+      = f.password_field :password, autocomplete: "off", placeholder: "7文字以上の半角英数字"
+  .field
+    .field-ls
+      .field-label
+        = f.label :password_confirmation, "パスワード確認"
+      %span 必須
+    .field-input
+      = f.password_field :password_confirmation, autocomplete: "off",placeholder: "確認のためもう一度入力してください"
+  .field
+    .field-ls
+      .field-label
+        = f.label :family_name, "名字"
+      %span 必須
+    .field-input
+      = f.text_field :family_name, autofocus: true, placeholder:"例）山田"
+  .field
+    .field-ls
+      .field-label
+        = f.label :first_name, "名前"
+      %span 必須
+    .field-input
+      = f.text_field :first_name, autofocus: true, placeholder:"例）太郎"
+    %p.furigana ＊ふりがなで入力してください
+    .field
+      .field-ls
+        .field-label
+          = f.label :furigana_family_name, "名字"
+        %span 必須
+      .field-input
+        = f.text_field :furigana_family_name, autofocus: true, placeholder:"例）やまだ"
+    .field
+      .field-ls
+        .field-label
+          = f.label :furigana_first_name, "名前"
+        %span 必須
+      .field-input
+        = f.text_field :furigana_first_name, autofocus: true, placeholder:"例）たろう"
+    .field
+      .field-ls
+        .field-label
+          = f.label :birthday, "生年月日を入力してくだい"
+        %span 必須
+      .field-input
+        = f.date_select :birthday, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
+  .actions       
+    = f.submit '次へ進む'
