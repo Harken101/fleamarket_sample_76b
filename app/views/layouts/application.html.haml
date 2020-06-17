@@ -31,12 +31,13 @@
             %li.listsleft__item
               .catbtn
                 カテゴリー
-                .category_list
-                  - @parents.each do |parent|
-                    .parents_list
-                      = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
-                  .children_list
-                  .grand_children_list
+                .category_box
+                  .parents_box
+                    - @parents.each do |parent|
+                      .parents_list
+                        = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+                  .children_box
+                  .grand_children_box
               -# %ul.category_list
                 -# - @parents.each do |parent|
                 -#   %li.parent

@@ -1,6 +1,6 @@
 $(function(){
   function buildChildHTML(child){
-    var html =`<div class="child">
+    var html =`<div class="children_list">
                   <a class="child_category" id="${child.id}" 
                   href="/categories/${child.id}">${child.name}</a>
                 </child>`;
@@ -8,9 +8,9 @@ $(function(){
   }
   $(".parent_category").on("mouseover",function(){
     var id = this.id
-    console.log(id)
-    $(".child_category").remove();//一旦出ている子カテゴリ消す
-    $(".grand_child_category").remove();//孫も消す
+    // console.log(id)
+    $(".children_list").remove();//一旦出ている子カテゴリ消す
+    $(".grand_children_list").remove();//孫も消す
 
     $.ajax({
       type: 'GET',
@@ -23,7 +23,7 @@ $(function(){
       children.forEach(function (child) {
         var html = buildChildHTML(child) //HTML化
         console.log(html)
-        $(".children_list").append(html)//リストに追加
+        $(".children_box").append(html)//リストに追加
       })
     })
     .fail(function() {
@@ -35,14 +35,16 @@ $(function(){
 
   // 孫カテゴリーのHTML
   function buildGrandChildHTML(child){
-    var html = `<a class="grand_child_category" id="${child.id}"
-                href="/categories/${child.id}">${child.name}</a>`;
+    var html = `<div class="grand_children_list">
+                  <a class="grand_child_category" id="${child.id}"
+                  href="/categories/${child.id}">${child.name}</a>
+                </div>`;
     return html;
   }
   // 子カテゴリーの一部を触るとchild.idを取得し、ajaxでそのidをcategories_contollerに飛ばし孫カテゴリーを引き出す処理。
   $(document).on("mouseover", ".child_category", function(){
     var id = this.id
-    console.log(id)
+    // console.log(id)
     
     $.ajax({
       type: "GET",
@@ -55,10 +57,11 @@ $(function(){
       console.log("done")
       children.forEach(function(child){
         var html = buildGrandChildHTML(child);
-        $(".grand_children_list").append(html);
+        $(".grand_children_box").append(html);
+        
       })
       $(document).on("mouseover", ".child_category", function () {
-        $(".grand_child_category").remove();
+        $(".grand_children_list").remove();
       });     
     })
     .fail(function() {
