@@ -17,4 +17,5 @@ Rails.application.routes.draw do
       get :search_two
     end
   end
+  resources :categories, only: [:new]
 end
