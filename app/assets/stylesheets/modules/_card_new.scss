@@ -1,0 +1,118 @@
+.new-card-content{
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-color: #EEEEEE;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  .new-card{
+    width: 50%;
+    height: 550px;
+    background-color: white;
+    margin: 0 auto;
+    &__title{
+      text-align: center;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgb(204, 204, 204);
+    }
+    &__content{
+      width: 300px;
+      margin: 0 auto;
+      &__card-number{
+        &__box{
+          display: flex;
+          padding: 10px 0;
+        }
+        .number{
+          width: 100%;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      }
+      &__card-date{
+        &__box{
+          display: flex;
+          padding: 10px 0;
+        }
+        &__box2{
+          display: flex;
+          padding: 10px 0;
+          text-align: center;
+          .exp_month{
+            width: 100px;
+            z-index: 2;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
+            &__text{
+              width: 50px;
+              line-height: 48px;
+            }
+          }
+          .exp_year{
+            width: 100px;
+            z-index: 2;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: 0;
+            font-size: 16px;
+            line-height: 1.5;
+            cursor: pointer;
+            &__text{
+              width: 50px;
+              line-height: 48px;
+            }
+          }
+        }
+      }
+      &__card-security{
+        &__box{
+          display: flex;
+          padding: 10px 0
+        }
+        .cvc{
+          width: 100%;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+        }
+      }
+      #token_submit{
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border-radius: 4px;
+        text-align: center;
+        background: #3CCACE;
+        border: 1px solid #3CCACE;
+        color: #fff;
+      }
+    }
+  }
+  .required{
+    margin-left: 10px;
+    background-color: red;
+    color: #fff;
+    border-radius: 2px;
+    font-style: normal;
+    line-height: 1.4em;
+  }
+}
