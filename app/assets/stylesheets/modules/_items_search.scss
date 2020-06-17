@@ -1,6 +1,33 @@
 .main__search{
-  display: flex;
+  display: inline-flex;
   flex-wrap:wrap;
+  width: 100%;
   .search__content{
+    padding: 40px;
+    img{
+      height: 279px;
+      width: 380px;
+    }
+    .list__body{
+      h3{
+        text-decoration: none;
+        list-style: none;
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .datelist{
+        ul{
+          display: flex;
+          li{
+            margin-right: 20px;
+          }
+        }
+        p{
+          font-size: 12px;
+        }
+
+      }
+    }
   }
 }
