@@ -31,12 +31,12 @@
             %li.listsleft__item
               .catbtn
                 カテゴリー
-                .category_box
-                  .parents_box
-                    - @parents.each do |parent|
-                      = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
-                  .children_box
-                  .grand_children_box
+              .category_box
+                .parents_box
+                  - @parents.each do |parent|
+                    = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+                .children_box
+                .grand_children_box
 
             %li.listsleft__item2
               =link_to "ブランド", "#", class:"brandbtn"

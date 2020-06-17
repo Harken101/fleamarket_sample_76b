@@ -1,10 +1,15 @@
 $(function(){
-
+  $(".category_box").hide();
   // カテゴリを触ったら動く
   $(".catbtn").on("mouseover",function(){
-    // $(".category_box").css("display", "block")
-    // console.log("ok")
-    
+    $(".category_box").show();
+  })
+
+  // 他のところを触ると消える
+  $(".main__visual").on("mouseover", function(){
+    $(".category_box").hide();
+    $(".child_category").remove();//一旦出ている子カテゴリ消す
+    $(".grand_child_category").remove();//孫も消す
   })
 
   function buildChildHTML(child){

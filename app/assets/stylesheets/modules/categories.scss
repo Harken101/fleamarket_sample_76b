@@ -3,7 +3,6 @@
   z-index: 10;
   position: absolute;
   background-color: #fff;
-  display: none;
     
   .parent_category{
     color: #333;
@@ -47,3 +46,11 @@
     padding: 3px 8px 3px 30px;
   }  
 }
+
+// .catbtn:hover + .category_box{
+//   display: block;
+// }
+
+// .category_box:hover + .category_box{
+//   display: block;
+// }
