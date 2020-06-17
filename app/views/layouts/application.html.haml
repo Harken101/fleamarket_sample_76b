@@ -3,6 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FleamarketSample76b
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -37,7 +38,7 @@
 
           -if user_signed_in?        
             %ul.listsright
-              = link_to new_user_registration_path, method: :get,class:"listsright__item" do
+              = link_to user_path(current_user.id), method: :get,class:"listsright__item" do
                 %li マイページ< #{current_user.nickname}
               = link_to destroy_user_session_path, method: :delete, class:"listsright__item" do
                 %li ログアウト
