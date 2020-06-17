@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
   def index
     @items = Item.all
   end
@@ -25,18 +26,18 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     if @item.save
       redirect_to root_path
-
+      
     else
       render  new_item_path
     end
   end
-
+  
   def edit
     unless @item.user_id == current_user.id
       redirect_to  root_path
     end
   end
-
+  
   def update
     if @item.update(item_update_params)
       redirect_to root_path
@@ -44,7 +45,7 @@ class ItemsController < ApplicationController
       redirect_to  edit_item_path(@item.id)
     end
   end
-
+  
   def search
     respond_to do |format|
       format.html
@@ -54,7 +55,7 @@ class ItemsController < ApplicationController
       end
     end
   end
-
+  
   def search_two
     respond_to do |format|
       format.html
@@ -64,10 +65,11 @@ class ItemsController < ApplicationController
       end
     end
   end
-
+  
+  
   def buyscreen
   end
-
+  
   def destroy
     if current_user.id == @item.user_id
       @item.destroy
@@ -76,21 +78,25 @@ class ItemsController < ApplicationController
       redirect_to root_path, alert: "削除に失敗しました"
     end
   end
-
+  
+  def items_search
+    @items = Item.items_search(params[:keyword])
+  end
+  
   private
-
+  
   def item_params
     params.require(:item).permit(:name, :description, :status, :price, :payer, :preday, :sold, :postage_type_id, :category_id,:child_category_id,:grandchild_category_id, :prefecture_id, images_attributes: [:image]).merge(user_id: current_user.id)
   end
-
+  
   def item_update_params
     params.require(:item).permit(
       :name, :description, :status, :price, :payer, :preday, :sold, :postage_type_id, :category_id,:child_category_id,:grandchild_category_id, :prefecture,
       [images_attributes: [:image, :_destroy, :id]]).merge(user_id: current_user.id)
-
+      
+    end
+    
+    def set_item
+      @item = Item.find(params[:id])
+    end
   end
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
-end

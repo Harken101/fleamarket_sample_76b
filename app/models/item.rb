@@ -32,4 +32,12 @@ class Item < ApplicationRecord
  
   belongs_to :category
   
+  def self.items_search(search)
+    if search
+      Item.where(['name LIKE ?', "%#{search}%"])
+    else
+      Item.all
+    end
+  end
+
 end

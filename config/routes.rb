@@ -20,7 +20,6 @@ Rails.application.routes.draw do
       end
     end
 
-
     resources :items  do
       resources :purchase, only: [:index] do
         collection do
@@ -30,8 +29,11 @@ Rails.application.routes.draw do
         end
       end
       collection do
+        get :buyscreen
         get :search
         get :search_two
+        get :items_search
       end
+
     end
 end
