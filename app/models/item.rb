@@ -33,7 +33,7 @@ class Item < ApplicationRecord
   
   def self.items_search(search)
     if search
-      Item.where(['text LIKE ?', "%#{search}%"])
+      Item.where(['name LIKE ?', "%#{search}%"])
     else
       Item.all
     end

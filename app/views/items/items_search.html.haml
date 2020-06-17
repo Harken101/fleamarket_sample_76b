@@ -1,1 +1,14 @@
-a
+.main__search
+  =link_to "#" do
+    - @items.each do |item|
+      .search__content
+        = image_tag item.images[0].image.url, class: "productimage"
+        %h3.name
+          =item.name
+        .datelist
+          %ul
+            %li #{item.price}円
+            %p (税込)
+            %li 
+              =icon("fas","star")
+              0
