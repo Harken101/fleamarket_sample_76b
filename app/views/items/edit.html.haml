@@ -75,9 +75,8 @@
             .required
               必須
           .new-item-content__thedetails__category
-            = f.collection_select :category_id, @parents, :id, :name, { class: "category_select-box", id: "category_select" }
-            -# .children_category
-              -# = f.collection_select :child_category_id, @children, :id, :name, { class: "category_select-box", id: "child_category" }
+            = f.collection_select :category_id, @parents, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "category_select" }
+
           -# 追加機能で実装予定
           -# .new-item-content__thedetails__box
           -#   .new-item-content__item__box__title
