@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
     @images = @item.images.build
     # Categoriesテーブルの上から13個のレコードを取り出す
     @parents = Category.all.order("id ASC").limit(13)
-    
   end
 
   def create  
@@ -37,6 +36,8 @@ class ItemsController < ApplicationController
       redirect_to  root_path
     end
     @parents = Category.all.order("id ASC").limit(13)
+    @parent = Category.find(@item[:category_id])
+    @children = @parent.child_ids
   end
 
   def update
