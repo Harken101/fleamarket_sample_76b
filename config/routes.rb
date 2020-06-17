@@ -29,11 +29,9 @@ Rails.application.routes.draw do
           get 'done', to: 'purchase#done'
         end
       end
-
       collection do
-        get :buyscreen
         get :search
         get :search_two
       end
-  end
+    end
 end

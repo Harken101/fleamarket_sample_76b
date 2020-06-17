@@ -5,7 +5,7 @@
       .main1__section__inner__items
         .item-box
           %h3.item_image
-            =image_tag "/image1.png"
+            =image_tag @item.images[0].image.url
           .item-box-data
             %p.item-name 
               = @item.name
