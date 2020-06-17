@@ -1,13 +1,14 @@
-
 .category_box{
   display: flex;
-  z-index: 10px;
+  z-index: 10;
+  position: absolute;
+  background-color: #fff;
   
   .parents_list{
     border-bottom: 1px solid #f8f8f8;
     display: block;
     width: 240px;
-    padding: 3px 8px 3px 0px;
+    padding: 3px 8px 3px 5px;
     
     .parent_category{
       color: #333;
