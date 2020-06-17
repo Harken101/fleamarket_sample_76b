@@ -3,56 +3,47 @@
   z-index: 10;
   position: absolute;
   background-color: #fff;
-  
-  .parents_list{
-    border-bottom: 1px solid #f8f8f8;
-    display: block;
-    width: 240px;
-    padding: 3px 8px 3px 5px;
+  display: none;
     
-    .parent_category{
-      color: #333;
-      text-decoration: none;
-      line-height: 32px;
-      background-position: center right;
-      background-repeat: no-repeat;
-      background-size: 18px;
-      padding-right: 30px;    
-    }
-
-  }
-  .children_list{
+  .parent_category{
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    display: block;  
+    width: 240px;
     border-bottom: 1px solid #f8f8f8;
     display: block;
-    width: 240px;
-    padding: 3px 8px 3px 0px;
-
-    .child_category{
-      color: #333;
-      text-decoration: none;
-      line-height: 32px;
-      background-position: center right;
-      background-repeat: no-repeat;
-      background-size: 18px;
-      padding-right: 30px;    
-    }
+    padding: 3px 8px 3px 30px;
   }
 
-  .grand_children_list{
+  .child_category{
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    display: block;  
+    width: 240px;
     border-bottom: 1px solid #f8f8f8;
     display: block;
-    width: 240px;
-    padding: 3px 8px 3px 0px;
-
-    .grand_child_category{
-      color: #333;
-      text-decoration: none;
-      line-height: 32px;
-      background-position: center right;
-      background-repeat: no-repeat;
-      background-size: 18px;
-      padding-right: 30px;    
-    }
+    padding: 3px 8px 3px 30px;
   }
-  
+
+  .grand_child_category{
+    color: #333;
+    text-decoration: none;
+    line-height: 32px;
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    display: block;  
+    width: 240px;
+    border-bottom: 1px solid #f8f8f8;
+    display: block;
+    padding: 3px 8px 3px 30px;
+  }  
 }

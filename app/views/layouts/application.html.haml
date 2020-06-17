@@ -34,22 +34,9 @@
                 .category_box
                   .parents_box
                     - @parents.each do |parent|
-                      .parents_list
-                        = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
+                      = link_to "#{parent.name}", "#", class: "parent_category",id: "#{parent.id}"
                   .children_box
                   .grand_children_box
-              -# %ul.category_list
-                -# - @parents.each do |parent|
-                -#   %li.parent
-                -#     = parent.name
-                -#     %ul.children
-                -#       - parent.children.each do |child|
-                -#         %li.child
-                -#           = child.name 
-                -#           %ul.grandchildren
-                -#             - child.children.each do |grandchild|
-                -#               %li.grandchild
-                -#                 = grandchild.name
 
             %li.listsleft__item2
               =link_to "ブランド", "#", class:"brandbtn"

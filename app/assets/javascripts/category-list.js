@@ -1,16 +1,20 @@
 $(function(){
+
+  // カテゴリを触ったら動く
+  $(".catbtn").on("mouseover",function(){
+    // $(".category_box").css("display", "block")
+    // console.log("ok")
+    
+  })
+
   function buildChildHTML(child){
-    var html =`<div class="children_list">
-                  <a class="child_category" id="${child.id}" 
-                  href="/categories/${child.id}">${child.name}</a>
-                </child>`;
+    var html =`<a class="child_category" id="${child.id}" href="/categories/${child.id}">${child.name}</a>`;
     return html;
   }
   $(".parent_category").on("mouseover",function(){
     var id = this.id
-    // console.log(id)
-    $(".children_list").remove();//一旦出ている子カテゴリ消す
-    $(".grand_children_list").remove();//孫も消す
+    $(".child_category").remove();//一旦出ている子カテゴリ消す
+    $(".grand_child_category").remove();//孫も消す
 
     $.ajax({
       type: 'GET',
@@ -35,10 +39,8 @@ $(function(){
 
   // 孫カテゴリーのHTML
   function buildGrandChildHTML(child){
-    var html = `<div class="grand_children_list">
-                  <a class="grand_child_category" id="${child.id}"
-                  href="/categories/${child.id}">${child.name}</a>
-                </div>`;
+    var html = `<a class="grand_child_category" id="${child.id}"
+                  href="/categories/${child.id}">${child.name}</a>`;
     return html;
   }
   // 子カテゴリーの一部を触るとchild.idを取得し、ajaxでそのidをcategories_contollerに飛ばし孫カテゴリーを引き出す処理。
@@ -61,7 +63,7 @@ $(function(){
         
       })
       $(document).on("mouseover", ".child_category", function () {
-        $(".grand_children_list").remove();
+        $(".grand_child_category").remove();
       });     
     })
     .fail(function() {
