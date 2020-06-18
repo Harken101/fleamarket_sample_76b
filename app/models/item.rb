@@ -5,9 +5,8 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :user
 
-  validates :name, presence: true, length: {maximum: 40}
-  validates :description, presence: true, length: {maximum: 1000}
-  validates :price, length: {maximum: 10}
+  validates :name, presence: true
+  validates :description, presence: true
   
   #アソシエーションを組んであるモデルに対してのバリデーションを組む
   validates_associated :images
@@ -32,12 +31,4 @@ class Item < ApplicationRecord
  
   belongs_to :category
   
-  def self.items_search(search)
-    if search
-      Item.where(['name LIKE ?', "%#{search}%"])
-    else
-      Item.all
-    end
-  end
-
 end

@@ -26,24 +26,6 @@
                 width: 560px;
                 align-items: center;
                 margin: 0 auto;
-                .items-box_photo__sold{
-                  position: absolute;
-                  left: 33px;
-                  width: 0;
-                  height: 0;
-                  border-top: 60px solid #ea352d ;
-                  border-right: 60px solid transparent;
-                  border-bottom: 60px solid transparent;
-                  border-left: 60px solid #ea352d ;
-                  &__inner{
-                    transform: rotate(-45deg);
-                    font-size: 28px;
-                    margin:-35px 0px 0px -55px;
-                    color: #fff;
-                    letter-spacing: 1px;
-                    font-weight: 600;
-                  }
-                }
                 img{
                   object-fit: cover;
                   height: 346px;
@@ -111,25 +93,6 @@
                 }
               }
             }
-          }
-          .soldout{
-            width: 80%;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 24px;
-            letter-spacing: 3px;
-            color: #ea352d;
-          }
-          .buybutton{
-            line-height: 48px;
-            background: #3CCACE;
-            border: 1px solid #3CCACE;
-            color: #fff;
-            width: 60%;
-            font-size: 18px;
-            border-radius: 100px;
-            padding-top: 10px;
-            margin-left: 120px;
           }
         }
         .comments{

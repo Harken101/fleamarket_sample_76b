@@ -8,64 +8,51 @@
           .itemsbox__body
             %ul.imagebox
               %li.images
-                -if @item.saler_id.present? 
-                  .items-box_photo__sold
-                    .items-box_photo__sold__inner
-                      SOLD
                 =image_tag @item.images[0].image.url, class:"big_image"
                 %ul
                   - @images.each do |image|
                     %li
                       = image_tag image.image.url, class:"mini_image"
           .itemsbox__price
-            %span.money
-              ¥
-              = @item.price
+            %span.money ¥30000
             .itemsbox__price__data
               %span （税込み）
               %span 送料込み
           .itemsbox__explan
-            %p
-              = @item.description
+            %p 説明です説明です説明です説明です説明です説明です説明です説明です
           .itemsbox__table
             %table
               %tbody
                 %tr
                   %th 出品者
-                  %td
-                    = @item.user.nickname
+                  %td hoge
                 %tr
                   %th カテゴリー
                   %td
-                    = link_to @item.category.name, "#"
+                    =link_to "登録してください","#"
                     %br
-                    = link_to @children.name, "#"
+                    =link_to "登録してください","#"
                     %br
-                    =link_to @grandchildren.name,"#"
+                    =link_to "登録してください","#"
+                %tr
+                  %th ブランド
+                  %td
+                %tr
+                  %th 商品のサイズ
+                  %td
                 %tr
                   %th 商品の状態
-                  %td
-                    = Item.item_statuses.keys.to_a[@item.status]
+                  %td 未使用なう
                 %tr
                   %th 配送料の負担
-                  %td
-                    = Item.delivery_charges.keys.to_a[@item.payer]
+                  %td 送料込み（出品者負担）
                 %tr
                   %th 発送元の地域
                   %td
-                    = @item.prefecture.name
                 %tr
                   %th 発送日の目安
-                  %td
-                    = Item.delivery_days.keys.to_a[@item.preday]
-         
-          - if user_signed_in? && current_user.id != @item.user_id 
-            -if @item.saler_id.present?
-              .soldout
-                売り切れました
-            -else
-              %button.buybutton(onclick="#")
-                購入する
+                  %td 4-7日で発送
+
         .comments
           = form_with model: @comment do |f| 
             %textarea{name: "text"}
@@ -79,7 +66,7 @@
           =link_to "ベビー・キッズをもっと見る","#"
         - if user_signed_in? && current_user.id == @item.user_id 
           .edititem
-            = link_to "商品の編集",edit_item_path(@item.id), method: :get
+            = link_to "商品の編集", "#"
         
           .destroyitem
             = link_to "この商品を削除する",item_path(@item.id), method: :delete
