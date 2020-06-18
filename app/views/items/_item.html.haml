@@ -1,4 +1,8 @@
 .main__pickup__productbox__lists__list
+  -if item.saler_id.present? 
+    .items-box_photo__sold
+      .items-box_photo__sold__inner
+        SOLD
   =link_to "items/#{item.id}" do
     = image_tag item.images[0].image.url, class: "productimage"
     .list__body

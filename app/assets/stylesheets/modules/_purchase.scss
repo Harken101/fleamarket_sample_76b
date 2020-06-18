@@ -1,0 +1,38 @@
+.purchase-content{
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-color: #EEEEEE;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  .purchase-item{
+    width: 50%;
+    height: 80%;
+    background-color: white;
+    margin: 0 auto;
+    &__title{
+      font-size: 36px;
+      font-weight: bold;
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgb(204, 204, 204);
+    }
+    &__top{
+      display: block;
+      width: 70%;
+      line-height: 48px;
+      font-size: 20px;
+      border-radius: 4px;
+      text-align: center;
+      background: #3CCACE;
+      border: 1px solid #3CCACE;
+      color: #fff;
+      margin: 0 auto;
+      margin-top: 100px;
+      &__link{
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+}

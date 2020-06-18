@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_10_035809) do
+ActiveRecord::Schema.define(version: 2020_06_16_045528) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "family_name", null: false
@@ -27,6 +27,15 @@ ActiveRecord::Schema.define(version: 2020_06_10_035809) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,14 +62,20 @@ ActiveRecord::Schema.define(version: 2020_06_10_035809) do
     t.integer "payer"
     t.integer "preday"
     t.boolean "sold", default: true
+    t.bigint "saler_id"
     t.bigint "user_id"
     t.bigint "postage_type_id"
     t.bigint "category_id"
+    t.bigint "child_category_id"
+    t.bigint "grandchild_category_id"
     t.integer "prefecture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["child_category_id"], name: "index_items_on_child_category_id"
+    t.index ["grandchild_category_id"], name: "index_items_on_grandchild_category_id"
     t.index ["postage_type_id"], name: "index_items_on_postage_type_id"
+    t.index ["saler_id"], name: "index_items_on_saler_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -84,6 +99,7 @@ ActiveRecord::Schema.define(version: 2020_06_10_035809) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "users"
 end
