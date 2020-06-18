@@ -32,17 +32,18 @@ class CategoriesController < ApplicationController
       find_item(category)
     end
   end
-end
 
-def find_item(category)
-  category.each do |id|
-    item_array = Item.includes(:images).where(category_id: id)
-    # find_by()メソッドで該当のレコードがなかった場合、itemオブジェクトに空の配列を入れないようにするための処理
-    if item_array.present?
-      item_array.each do |item|
-        if item.present?
-          # find_by()メソッドで該当のレコードが見つかった場合、@item配列オブジェクトにそのレコードを追加する
-          @items.push(item)
+
+  def find_item(category)
+    category.each do |id|
+      item_array = Item.includes(:images).where(category_id: id)
+      # find_by()メソッドで該当のレコードがなかった場合、itemオブジェクトに空の配列を入れないようにするための処理
+      if item_array.present?
+        item_array.each do |item|
+          if item.present?
+            # find_by()メソッドで該当のレコードが見つかった場合、@item配列オブジェクトにそのレコードを追加する
+            @items.push(item)
+          end
         end
       end
     end
