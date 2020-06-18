@@ -32,7 +32,6 @@ class CategoriesController < ApplicationController
       find_item(category)
     end
   end
-
 end
 
 def find_item(category)
@@ -42,7 +41,6 @@ def find_item(category)
     if item_array.present?
       item_array.each do |item|
         if item.present?
-        else
           # find_by()メソッドで該当のレコードが見つかった場合、@item配列オブジェクトにそのレコードを追加する
           @items.push(item)
         end
