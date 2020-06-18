@@ -39,7 +39,6 @@ class ItemsController < ApplicationController
     @parent = Category.find(@item[:category_id])
     @children = @parent.children
     @grandchildren = @parent.indirects
-
   end
 
   def update
