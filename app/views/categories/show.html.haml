@@ -1,3 +1,11 @@
+-# .contentRight--cat
+-#   .titlebox
+-#     %h2 #{@category.name}の商品一覧
+-#     %ul.subLists
+-#       - @category.each do |category|
+-#         %li
+-#           = link_to "/categories/#{category.id}"
+
 .main__search
   - @items.each do |item|
     .search__content
