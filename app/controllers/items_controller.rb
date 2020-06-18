@@ -37,7 +37,9 @@ class ItemsController < ApplicationController
     end
     @parents = Category.all.order("id ASC").limit(13)
     @parent = Category.find(@item[:category_id])
-    @children = @parent.child_ids
+    @children = @parent.children
+    @grandchildren = @parent.indirects
+
   end
 
   def update
