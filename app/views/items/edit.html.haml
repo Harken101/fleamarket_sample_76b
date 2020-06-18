@@ -78,7 +78,7 @@
             = f.collection_select :category_id, @parents, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "category_select" }
             .children_category
               = f.collection_select :child_category_id, @children, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "child_category" }
-            .grandchildren_category
+            .grand_category
               = f.collection_select :grandchild_category_id, @grandchildren, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "grandchild_category" }
           -# 追加機能で実装予定
           -# .new-item-content__thedetails__box
