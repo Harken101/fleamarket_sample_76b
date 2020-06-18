@@ -8,6 +8,10 @@
           .itemsbox__body
             %ul.imagebox
               %li.images
+                -if @item.saler_id.present? 
+                  .items-box_photo__sold
+                    .items-box_photo__sold__inner
+                      SOLD
                 =image_tag @item.images[0].image.url, class:"big_image"
                 %ul
                   - @images.each do |image|
@@ -56,8 +60,12 @@
                     = Item.delivery_days.keys.to_a[@item.preday]
          
           - if user_signed_in? && current_user.id != @item.user_id 
-            %button.buybutton(onclick="#")
-              購入する
+            -if @item.saler_id.present?
+              .soldout
+                売り切れました
+            -else
+              %button.buybutton(onclick="#")
+                購入する
         .comments
           = form_with model: @comment do |f| 
             %textarea{name: "text"}
