@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
     # 親カテゴリーを選択していた場合の処理
     if @category.ancestry == nil
       # Categoryモデル内の親カテゴリーに紐づく孫カテゴリーのidを取得
-      category = Category.find_by(id: params[:id]).indirect_ids
+      category = @category.indirect_ids
       # 孫カテゴリーに該当するitemsテーブルのレコードを入れるようの配列を用意
       @items = []
       # find_itemメソッドで処理
@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
 
     # 子カテゴリーを選択していた場合の処理
     else
-      category = Category.find_by(id: params[:id]).child_ids
+      category = @category.child_ids
       # 孫カテゴリーに該当するitemsテーブルのレコードを入れるようの配列を用意
       @items = []
       # find_itemメソッドで処理
