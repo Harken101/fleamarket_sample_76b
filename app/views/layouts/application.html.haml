@@ -3,6 +3,7 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FleamarketSample76b
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -21,10 +22,12 @@
         .header__inner__mainheader
           = link_to image_tag(src= "/logo2.png", class: "homebtn"), "/"
           .header__inner__mainheader__searchbox
-            = form_with url: '#' do |form|
-              = form.text_field :content, class: 'inputbox__text', placeholder: 'キーワード検索'
+            = form_with(url: items_search_items_path, method: :get, local:true) do |form|
+              = form.text_field :keyword, class: 'inputbox__text', placeholder: 'キーワード検索'
+              -# = form.submit "検索", class: "button"
               %button(type="submit")
                 =icon("fas","search")
+
                 
         .header__inner__nav
           %ul.listsleft
@@ -43,7 +46,7 @@
 
           -if user_signed_in?        
             %ul.listsright
-              = link_to new_user_registration_path, method: :get,class:"listsright__item" do
+              = link_to user_path(current_user.id), method: :get,class:"listsright__item" do
                 %li マイページ< #{current_user.nickname}
               = link_to destroy_user_session_path, method: :delete, class:"listsright__item" do
                 %li ログアウト

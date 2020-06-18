@@ -107,3 +107,6 @@ gem 'jquery-rails'
 
 # S3に画像上げるよう
 gem 'fog-aws'
+
+# APIの管理
+gem 'dotenv-rails'

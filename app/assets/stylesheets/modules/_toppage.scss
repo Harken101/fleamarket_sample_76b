@@ -109,6 +109,7 @@
               color: #333;
               line-height: 38px;
               padding: 0 0 0 16px;
+              text-decoration: none;
               a{
                 display: flex;
                 align-items: center;
@@ -379,7 +380,27 @@
           width: 220px;
           display: inline-block;
           margin-bottom: 20px;
+          position: relative;
           //商品の画像と説明、どちらをクリックしてもリンクで飛ぶ
+          .items-box_photo__sold{
+            position: absolute;
+            left: 0;
+            z-index:100;
+            width: 0;
+            height: 0;
+            border-top: 50px solid #ea352d ;
+            border-right: 50px solid transparent;
+            border-bottom: 50px solid transparent;
+            border-left: 50px solid #ea352d ;
+            &__inner{
+              transform: rotate(-45deg);
+              font-size: 20px;
+              margin:-35px 0px 0px -55px;
+              color: #fff;
+              letter-spacing: 1px;
+              font-weight: 600;
+            }
+          }
           a{
             background-color: #fff;
             display: inline-block;
