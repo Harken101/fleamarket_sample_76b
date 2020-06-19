@@ -34,6 +34,6 @@ Rails.application.routes.draw do
         get :search_two
         get :items_search
       end
-
     end
+  resources :categories, only: [:new, :show]
 end

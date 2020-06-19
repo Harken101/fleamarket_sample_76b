@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
   #deviseコントローラーが動くとconfigure_permitted_parametersを実行
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_categories
+
+  def set_categories
+    @parents = Category.where(ancestry: nil)
+  end
+
 
 
   private

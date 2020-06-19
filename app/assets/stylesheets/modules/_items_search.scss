@@ -4,6 +4,10 @@
   width: 100%;
   .search__content{
     padding: 40px;
+    a{
+      text-decoration: none;
+      color: black;
+    }
     img{
       height: 279px;
       width: 380px;
@@ -27,6 +31,41 @@
           font-size: 12px;
         }
 
+      }
+    }
+  }
+}
+
+// カテゴリー検索
+.showMain {
+  padding: 40px;
+  margin: 0 auto;
+  background: #f8f8f8;
+}
+.contentRight--cat{
+  width: 700px;
+  margin: 0 auto;
+  .titlebox{
+    border-radius: 5px 5px 0 0;
+    padding: 16px 10px 8px;
+    background-color: #3CCACE;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+  }
+  .subLists{
+    padding: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    li{
+      line-height: 26px;
+      margin: 10px;
+      a{
+        color: #ffb340;
+        text-decoration: none;
+        font-size: 14px;
       }
     }
   }

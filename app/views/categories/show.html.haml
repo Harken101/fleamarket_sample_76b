@@ -1,0 +1,23 @@
+.showMain
+  .contentRight--cat
+    .titlebox
+      %h2 #{@category.name}の商品一覧
+    %ul.subLists
+      - @category.children.each do |child|
+        %li
+          = link_to "#{child.name}", "/categories/#{child.id}"
+  .main__search
+    - @items.each do |item|
+      .search__content
+        =link_to "/items/#{item.id}" do
+          = image_tag item.images[0].image.url, class: "productimage"
+          .list__body
+            %h3.name
+              = item.name
+            .datelist
+              %ul
+                %li #{item.price}円
+                %li 
+                  =icon("fas","star")
+                  0
+              %p (税込)
