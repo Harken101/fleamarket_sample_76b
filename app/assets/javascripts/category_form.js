@@ -29,6 +29,9 @@
     
     // 親ボックスのタブが切り替わったら発火
     $(document).on("change", "#category_select", function(){
+      // 最初に削除を行う
+      $('.children_category').remove(); 
+      $('.grand_category').remove();
       // 親ボックスのidを取得してそのidをAjax通信でコントローラーへ送る
       var parentValue = document.getElementById("category_select").value;
       // parentValueに値を代入している
@@ -52,11 +55,6 @@
         });
           // 最後に代入
           appendChidrenBox(insertHTML); 
-          // 通信成功時に親の選択肢を変えたらイベント発火｡子と孫を削除｡selectのidにかけるのではなく､親要素にかけないと残ってしまう
-          $(document).on("change", "#category_select",function(){
-            $('.children_category').remove(); 
-            $('.grand_category').remove();
-          })
         })
         .fail(function(){
           // 通信に失敗した場合の処理です
@@ -67,6 +65,8 @@
     
     
     $(document).on("change", "#child_category",function(){
+      // 最初に削除を行う
+      $('.grand_category').remove();
       // 子ボックスのidを取得してそのidをAjax通信でコントローラーへ送る
       var childValue = document.getElementById("child_category").value;
       // childValueに値を代入
@@ -91,9 +91,6 @@
         });
           // 最後に代入
           appendgrandChidrenBox(insertHTML); 
-          $(document).on("change", "#child_category",function(){
-            $('.grand_category').remove();
-          })
         })
         .fail(function(){
           // 通信に失敗した場合の処理です
