@@ -168,8 +168,14 @@
             }
             .edititem{
               text-align: center;
-              line-height: 100px;
+              margin-top: 20px;
               a{
+                margin: 0 auto;
+                text-align: center;
+                display: block;
+                height: 60px;
+                width: 200px;
+                line-height: 40px;
                 background: #3CCACE;
                 border: 1px solid #3CCACE;
                 color: #fff;
@@ -182,7 +188,13 @@
             .destroyitem{
               text-align: center;
               height: 50px;
+              margin-top: 40px;
               a{
+                display: block;
+                height: 60px;
+                width: 250px;
+                line-height: 40px;
+                margin: 0 auto;
                 background: rgb(87, 90, 90);
                 border: 1px solid rgb(86, 92, 92);
                 color: #fff;
@@ -190,6 +202,7 @@
                 border-radius: 100px;
                 padding-top: 10px;
                 text-decoration: none;
+
               }
             }
           

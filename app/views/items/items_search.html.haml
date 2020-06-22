@@ -1,10 +1,12 @@
 .main__search
   - @items.each do |item|
     .search__content
-      = image_tag item.images[0].image.url, class: "productimage"
+      =link_to "#{item.id}" do
+        = image_tag item.images[0].image.url, class: "productimage"
       .list__body
         %h3.name
-          = item.name
+          =link_to "#{item.id}" do
+            = item.name
         .datelist
           %ul
             %li #{item.price}円

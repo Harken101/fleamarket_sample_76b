@@ -5,8 +5,7 @@
   .search__content{
     padding: 40px;
     a{
-      text-decoration: none;
-      color: black;
+      @include text-reset;
     }
     img{
       height: 279px;
@@ -14,9 +13,7 @@
     }
     .list__body{
       h3{
-        text-decoration: none;
-        list-style: none;
-        color: black;
+        @include text-reset;
         font-size: 18px;
         font-weight: bold;
       }
