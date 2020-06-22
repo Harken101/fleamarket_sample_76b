@@ -1,24 +1,19 @@
 .new-card-content{
-  width: 100%;
-  height: calc(100vh - 100px);
-  background-color: #EEEEEE;
+  @include card-content;
   padding-top: 80px;
-  padding-bottom: 100px;
+  // 支払い方法
   .new-card{
-    width: 50%;
+    @include card-item;
     height: 550px;
-    background-color: white;
-    margin: 0 auto;
     &__title{
-      text-align: center;
-      font-weight: bold;
+      @include card-title;
       font-size: 20px;
       padding: 10px 0;
-      border-bottom: 1px solid rgb(204, 204, 204);
     }
     &__content{
       width: 300px;
       margin: 0 auto;
+      // カード番号
       &__card-number{
         &__box{
           display: flex;
@@ -35,6 +30,7 @@
           font-size: 16px;
         }
       }
+      // 有効期限
       &__card-date{
         &__box{
           display: flex;
@@ -78,6 +74,7 @@
           }
         }
       }
+      // セキュリティーコード
       &__card-security{
         &__box{
           display: flex;
@@ -94,25 +91,15 @@
           font-size: 16px;
         }
       }
+      // 登録ボタン
       #token_submit{
-        display: block;
+        @include card-submit;
         width: 100%;
-        line-height: 48px;
         font-size: 14px;
-        border-radius: 4px;
-        text-align: center;
-        background: #3CCACE;
-        border: 1px solid #3CCACE;
-        color: #fff;
       }
     }
   }
   .required{
-    margin-left: 10px;
-    background-color: red;
-    color: #fff;
-    border-radius: 2px;
-    font-style: normal;
-    line-height: 1.4em;
+    @include required;
   }
 }

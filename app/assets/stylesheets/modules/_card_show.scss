@@ -1,43 +1,33 @@
 .register-card-content{
-  width: 100%;
-  height: calc(100vh - 100px);
-  background-color: #EEEEEE;
+  @include card-content;
   padding-top: 100px;
-  padding-bottom: 100px;
+  // クレジットカード情報
   .register-card-item{
-    width: 50%;
+    @include card-item;
     height: 80%;
-    background-color: white;
-    margin: 0 auto;
     &__title{
+      @include card-title;
       width: 100%;
-      text-align: center;
       font-size: 36px;
-      font-weight: bold;
-      text-align: center;
       padding-top: 20px;
       padding-bottom: 10px;
-      border-bottom: 1px solid rgb(204, 204, 204);
     }
+    // カード番号
     &__card-number{
       text-align: center;
       font-size: 20px;
     }
+    // 有効期限
     &__date{
       font-size: 20px;
       display: flex;
       justify-content: space-evenly;
     }
+    // 削除ボタン
     &__submit{
-      display: block;
+      @include card-submit;
       width: 50%;
-      line-height: 48px;
       font-size: 20px;
-      border-radius: 4px;
-      text-align: center;
-      background: #3CCACE;
-      border: 1px solid #3CCACE;
-      color: #fff;
       margin: 0 auto;
       margin-top: 20px;
     }
