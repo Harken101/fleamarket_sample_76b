@@ -330,16 +330,18 @@
       }
       //商品リスト
       &__lists{
-        width: 780px;
+        width: 660px;
         margin: 26px auto;
         display: flex;
         flex-wrap: wrap;
 
         &__list{
-          width: 220px;
+          width: 200px;
           display: inline-block;
           margin-bottom: 20px;
           position: relative;
+          margin-right: 10px;
+          margin-left: 10px;
           //商品の画像と説明、どちらをクリックしてもリンクで飛ぶ
           .items-box_photo__sold{
             @include image-photo;
