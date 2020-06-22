@@ -124,12 +124,16 @@
             line-height: 48px;
             background: #3CCACE;
             border: 1px solid #3CCACE;
-            color: #fff;
             width: 60%;
             font-size: 18px;
             border-radius: 100px;
             padding-top: 10px;
             margin-left: 120px;
+            a{
+              color: #fff;
+              text-decoration: none;
+              display: block;
+            }
           }
         }
         .comments{
