@@ -27,21 +27,11 @@
                 align-items: center;
                 margin: 0 auto;
                 .items-box_photo__sold{
-                  position: absolute;
+                  @include image-photo;
                   left: 33px;
-                  width: 0;
-                  height: 0;
-                  border-top: 60px solid #ea352d ;
-                  border-right: 60px solid transparent;
-                  border-bottom: 60px solid transparent;
-                  border-left: 60px solid #ea352d ;
                   &__inner{
-                    transform: rotate(-45deg);
+                    @include image-inner;
                     font-size: 28px;
-                    margin:-35px 0px 0px -55px;
-                    color: #fff;
-                    letter-spacing: 1px;
-                    font-weight: 600;
                   }
                 }
                 img{
@@ -124,12 +114,16 @@
             line-height: 48px;
             background: #3CCACE;
             border: 1px solid #3CCACE;
-            color: #fff;
             width: 60%;
             font-size: 18px;
             border-radius: 100px;
             padding-top: 10px;
             margin-left: 120px;
+            a{
+              color: #fff;
+              text-decoration: none;
+              display: block;
+            }
           }
         }
         .comments{
@@ -174,8 +168,14 @@
             }
             .edititem{
               text-align: center;
-              line-height: 100px;
+              margin-top: 20px;
               a{
+                margin: 0 auto;
+                text-align: center;
+                display: block;
+                height: 60px;
+                width: 200px;
+                line-height: 40px;
                 background: #3CCACE;
                 border: 1px solid #3CCACE;
                 color: #fff;
@@ -188,7 +188,13 @@
             .destroyitem{
               text-align: center;
               height: 50px;
+              margin-top: 40px;
               a{
+                display: block;
+                height: 60px;
+                width: 250px;
+                line-height: 40px;
+                margin: 0 auto;
                 background: rgb(87, 90, 90);
                 border: 1px solid rgb(86, 92, 92);
                 color: #fff;
@@ -196,6 +202,7 @@
                 border-radius: 100px;
                 padding-top: 10px;
                 text-decoration: none;
+
               }
             }
           

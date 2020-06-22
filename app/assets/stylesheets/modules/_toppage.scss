@@ -75,13 +75,7 @@
               text-decoration: none;
               padding: 0;
               .catbtn{
-                color: #333;
-                text-decoration: none;
-                line-height: 32px;
-                background-position: center right;
-                background-repeat: no-repeat;
-                background-size: 18px;
-                padding-right: 30px;
+                @include category-btn;
               }
             }
             // ブランド部分
@@ -90,13 +84,7 @@
               line-height: 38px;
               padding: 0 0 0 16px;
               .brandbtn{
-                color: #333;
-                text-decoration: none;
-                line-height: 32px;
-                background-position: center right;
-                background-repeat: no-repeat;
-                background-size: 18px;
-                padding-right: 30px;
+                @include category-btn;
               }
             }
           }
@@ -106,16 +94,11 @@
             display: flex;
             // ログイン部分
             .listsright__item{
-              color: #333;
+              @include text-reset;
               line-height: 38px;
               padding: 0 0 0 16px;
-              text-decoration: none;
               a{
-                display: flex;
-                align-items: center;
-                color: #333;
-                text-decoration: none;
-                line-height: 32px;
+                @include login-btn;
               }
             }
             // 新規会員登録部分
@@ -124,11 +107,7 @@
               line-height: 38px;
               padding: 0 0 0 16px;
               a{
-                display: flex;
-                align-items: center;
-                color: #333;
-                text-decoration: none;
-                line-height: 32px;
+                @include login-btn;
               }
             }
           }
@@ -156,18 +135,15 @@
       width: 100%;
       margin: 0 auto;
       padding: 35px 0 0 0;
+      @include font-white;
       //人生を変えるフリマアプリテキスト
       .content__subtitle{
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
         font-size: 60px;
         line-height: 1.2;
-        color: #fff;
       }
       //改行含むテキスト
       .content__text{
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
         font-size: 18px;
-        color: #fff;
         line-height: 1.77778;
         margin: 16px 0 0 0;
       }
@@ -175,26 +151,7 @@
       &__btn{
         display: flex;
         margin: 24px 0 0 0;
-        //appleボタン
-        .alink{
-          margin-right: 10px;
-          width: 180px;
-        }
-        .abtn{
-          width: 100%;
-          vertical-align: bottom;
-        }
-        .abtn:hover{
-          opacity: 0.5;
-        }
-        //googleボタン
-        .gbtn{
-          width: 180px;
-          vertical-align: bottom;
-        }
-        .gbtn:hover{
-          opacity: 0.5;
-        }
+        @include abtnbbtn;
       }
     }
   }
@@ -266,6 +223,7 @@
       }
     }
   }
+
   // 会員数日本1位の部分、ボタンは使い回し
   &__middle{
     background-image: url(/main2.jpeg);
@@ -275,8 +233,7 @@
     display: flex;
     align-items: center;
     &__content{
-      color: #fff;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      @include font-white;
       text-align: left;
       max-width: 1040px;
       width: 100%;
@@ -295,6 +252,7 @@
       }
     }
   }
+
   // ３つの特徴部分、3つの理由部分を使いまわしている
   &__charactor{
     padding: 60px 100px;
@@ -344,6 +302,7 @@
       text-align: left;
     }
   }
+
   //ピックアップ商品&ブランド、レイアウトほぼ一緒なので使い回し
   &__pickup{
     padding: 80px 0 0;
@@ -383,22 +342,12 @@
           position: relative;
           //商品の画像と説明、どちらをクリックしてもリンクで飛ぶ
           .items-box_photo__sold{
-            position: absolute;
+            @include image-photo;
             left: 0;
             z-index:100;
-            width: 0;
-            height: 0;
-            border-top: 50px solid #ea352d ;
-            border-right: 50px solid transparent;
-            border-bottom: 50px solid transparent;
-            border-left: 50px solid #ea352d ;
             &__inner{
-              transform: rotate(-45deg);
+              @include image-inner;
               font-size: 20px;
-              margin:-35px 0px 0px -55px;
-              color: #fff;
-              letter-spacing: 1px;
-              font-weight: 600;
             }
           }
           a{
@@ -460,11 +409,10 @@
   background-size: cover;
   background-position: center;
   &__inner{
-    color: #fff;
     text-align: center;
+    @include font-white;
     //誰でも簡単フリマアプリ
     .banner__subtitle{
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
       font-size: 24px;
       font-weight: bold;
       line-height: 1.4;
@@ -472,7 +420,6 @@
     //今すぐ無料ダウンロード
     .banner__text{
       font-size: 35px;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
     //ボタン部分
     &__icon{
@@ -480,26 +427,7 @@
       display: flex;
       justify-content: center;
       margin: 20px auto 0;
-      //appleボタン
-      .alink{
-        margin-right: 10px;
-        width: 180px;
-      }
-      .abtn{
-        width: 100%;
-        vertical-align: bottom;
-      }
-      .abtn:hover{
-        opacity: 0.5;
-      }
-      //googleボタン
-      .gbtn{
-        width: 180px;
-        vertical-align: bottom;
-      }
-      .gbtn:hover{
-        opacity: 0.5;
-      }
+      @include abtnbbtn;
     }
   }
 }

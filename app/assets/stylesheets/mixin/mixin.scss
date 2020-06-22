@@ -1,3 +1,40 @@
+@mixin card-content {
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-color: #EEEEEE;
+  padding-bottom: 100px;
+}
+
+@mixin card-item {
+  width: 50%;
+  background-color: white;
+  margin: 0 auto;
+}
+
+@mixin card-title {
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid rgb(204, 204, 204);
+}
+
+@mixin card-submit {
+  display: block;
+  border-radius: 4px;
+  text-align: center;
+  background: #3CCACE;
+  border: 1px solid #3CCACE;
+  color: #fff;
+  line-height: 48px;
+}
+
+@mixin required {
+  margin-left: 10px;
+  background-color: red;
+  color: #fff;
+  border-radius: 2px;
+  font-style: normal;
+  line-height: 1.4em;
+
 // カテゴリー用
 @mixin category_box {
   color: #333;
@@ -12,8 +49,77 @@
   display: block;
   padding: 3px 8px 3px 30px;
 }
+  
 // link用
 @mixin text-reset {
   text-decoration: none;
   color: black;
+}
+
+// ログイン・新規会員登録
+@mixin login-btn{
+  text-decoration: none;
+  color: black;
+  display: flex;
+  align-items: center;
+  line-height: 32px;
+}
+
+// カテゴリー・ブランド
+@mixin category-btn{
+  text-decoration: none;
+  color: black;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 30px;
+}
+
+// googleボタン・appleボタン
+@mixin abtnbbtn{
+  //appleボタン
+  .alink{
+    margin-right: 10px;
+    width: 180px;
+  }
+  .abtn{
+    width: 100%;
+    vertical-align: bottom;
+  }
+  .abtn:hover{
+    opacity: 0.5;
+  }
+  //googleボタン
+  .gbtn{
+    width: 180px;
+    vertical-align: bottom;
+  }
+  .gbtn:hover{
+    opacity: 0.5;
+  }
+}
+
+// トップページフォント
+@mixin font-white{
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+// 画像のプレビュー
+@mixin image-photo{
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 50px solid #ea352d ;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 50px solid #ea352d ;
+}
+@mixin image-inner{
+  transform: rotate(-45deg);
+  margin:-35px 0px 0px -55px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
