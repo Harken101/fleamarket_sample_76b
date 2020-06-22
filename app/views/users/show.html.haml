@@ -82,9 +82,9 @@
         %ul.mypage-nav-list
           %li.title クレジット
           %li.create_credit
-            = link_to "クレジットカードの登録","#"
+            = link_to "クレジットカードの登録","/card/new"
           %li.edit_credit
-            = link_to"クレジットカードの変更", "#"    
+            = link_to"クレジットカードの変更", "card/#{@user.id}"    
 
       .mypage-nav
         %ul.setting 
