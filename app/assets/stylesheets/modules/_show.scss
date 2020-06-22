@@ -27,21 +27,11 @@
                 align-items: center;
                 margin: 0 auto;
                 .items-box_photo__sold{
-                  position: absolute;
+                  @include image-photo;
                   left: 33px;
-                  width: 0;
-                  height: 0;
-                  border-top: 60px solid #ea352d ;
-                  border-right: 60px solid transparent;
-                  border-bottom: 60px solid transparent;
-                  border-left: 60px solid #ea352d ;
                   &__inner{
-                    transform: rotate(-45deg);
+                    @include image-inner;
                     font-size: 28px;
-                    margin:-35px 0px 0px -55px;
-                    color: #fff;
-                    letter-spacing: 1px;
-                    font-weight: 600;
                   }
                 }
                 img{
