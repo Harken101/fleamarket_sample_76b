@@ -28,7 +28,6 @@
                 =link_to "text","#"
               .item-link__body
                 .item-link__body__time
-                  -# = fa_icon "clock", class: 'icon'
                 %span 1時間前
                 .right-y
         %li.mypage-item-link
@@ -38,7 +37,6 @@
               =link_to "text","#"
               .item-link__body
                 .item-link__body__time
-                  -# = fa_icon "clock", class: 'icon'
                 %span 1時間前
         %li.mypage-item-link
           .item-link
@@ -48,7 +46,6 @@
                 =link_to "text","#"
               .item-link__body
                 .item-link__body__time
-                  -# = fa_icon "clock", class: 'icon'
                 %span 1時間前
                 .right-y
         %li.mypage-go-list
@@ -70,34 +67,15 @@
         %ul.mypage-nav-list
           %li.mypage
             = link_to "マイページ","#"
-          %li.good 
-            = link_to"いいね！一覧", "#"
           %li.exhibition
             = link_to"出品する", "/items/new"
-          %li.draft
-            = link_to"下書き一覧", "#"
-          %li.buy
-            = link_to"購入した商品", "#"
+          %li.logout
+            = link_to destroy_user_session_path, method: :delete do
+              ログアウト
 
         %ul.mypage-nav-list
           %li.title クレジット
           %li.create_credit
             = link_to "クレジットカードの登録","/card/new"
           %li.edit_credit
-            = link_to"クレジットカードの変更", "card/#{@user.id}"    
-
-      .mypage-nav
-        %ul.setting 
-          %li.setting-title 設定
-          %li.profile
-            = link_to"プロフィール", "#" 
-          %li.edit_address
-            = link_to user_path method: :get do
-              発送元・お届け先住所変更
-          %li.peyment
-            = link_to"お支払い方法", "#"  
-          %li.mail_password
-            = link_to"購入した商品", "#" 
-          %li.logout
-            = link_to destroy_user_session_path, method: :delete do
-              ログアウト
+            = link_to"クレジットカードの情報", "/card/show" 

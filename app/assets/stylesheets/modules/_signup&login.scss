@@ -65,7 +65,7 @@
     border-radius: 4px;
   }
 }
-//ログイン機能　newhtml.haml
+//ログイン機能newhtml.haml
 .account-page__inner--left.account-page__header{
   text-align: center;
   margin-bottom: 15px;
@@ -136,10 +136,14 @@
     text-align: center;
     margin: auto;
     &__link{
-      text-decoration: none;
-      color: black;
+      @include text-reset;
       font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ,Meiryo, sans-serif;
       
     }
   }
+}
+
+//エラー文のcss
+.error_box{
+  color: red;  
 }

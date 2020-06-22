@@ -22,7 +22,6 @@
           .header__inner__mainheader__searchbox
             = form_with(url: items_search_items_path, method: :get, local:true) do |form|
               = form.text_field :keyword, class: 'inputbox__text', placeholder: 'キーワード検索'
-              -# = form.submit "検索", class: "button"
               %button(type="submit")
                 =icon("fas","search")
 
