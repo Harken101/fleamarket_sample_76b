@@ -1,0 +1,19 @@
+// カテゴリー用
+@mixin category_box {
+  color: #333;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  display: block;
+  width: 240px;
+  border-bottom: 1px solid #F8F8F8;
+  display: block;
+  padding: 3px 8px 3px 30px;
+}
+// link用
+@mixin text-reset {
+  text-decoration: none;
+  color: black;
+}

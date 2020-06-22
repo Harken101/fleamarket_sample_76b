@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :show]
   root 'items#index'
     resources :address, only: [:create,:edit, :update]
-    resources :cards, only: [:create, :edit, :update]
   
     resources :card, only: [:new, :show] do
       collection do
@@ -29,7 +28,6 @@ Rails.application.routes.draw do
         end
       end
       collection do
-        get :buyscreen
         get :search
         get :search_two
         get :items_search
