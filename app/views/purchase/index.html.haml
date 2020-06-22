@@ -13,8 +13,8 @@
             %p.item-price 
               %span.money 
                 = @item.price
-              %span.tax (税込)送料込み
-    -# 購入内容
+              %span.tax 円(税込)送料込み
+              
     .main1__section__inner
       -# 商品画像と名前
       .main1__section__inner__items
@@ -25,7 +25,7 @@
               .merge-price
                 %span 支払い金額
               .buy-price
-                %span 
+                %span
                   = @item.price
           .item-info
             .item-info-inner
@@ -42,13 +42,13 @@
                 - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
                 = exp_month + " / " + exp_year
               -# カード情報を登録しているか、どうかでビューが変わる
-          .item-info
-            .item-info-inner
-              %h3 配送先
-              -# 同じく住所を登録しているかどうかでビューが変わる
-              .links
-                =icon("fas","star")
-                =link_to "登録してください","#"
+          -# .item-info
+          -#   .item-info-inner
+          -#     %h3 配送先
+          -#     -# 同じく住所を登録しているかどうかでビューが変わる
+          -#     .links
+          -#       =icon("fas","star")
+          -#       =link_to "登録してください","#"
           .item-info
             -# 購入ボタン
             .item-info-button

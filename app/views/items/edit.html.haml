@@ -12,7 +12,7 @@
             最大10枚までアップロードできます
           .new-item-content__images__itemsbox
             .prev-content
-              //JSで挿入したhtmlと同じ形　each文でのプレビュー表示
+              //JSで挿入したhtmlと同じ形 each文でのプレビュー表示
               - @item.images.each do |image|
                 .preview-box
                   .upper-box
@@ -26,7 +26,6 @@
             
             .label-content
             
-
               //プレビューの数に合わせてforオプションを指定
               = f.label :"images_attributes_#{@item.images.length}_image", class: "label-box", id: "label-box--#{@item.images.length}" do
                 %pre.label-box__text-visible クリックしてファイルをアップロード
@@ -41,16 +40,6 @@
               - @item.images.length.upto(4) do |i|
                 %input{name: "item[images_attributes][#{i}][image]", id: "item_images_attributes_#{i}_image", class:"hidden-field", type:"file"}
 
-            -#   %label{for: "item_images_attributes_0_image", class: "label-box", id: "label-box--0"}
-            -#     %pre.label-box__text-visible クリックしてファイルをアップロード
-                
-            -# .hidden-content
-            -#   = f.fields_for :images do |i|
-            -#     = i.file_field :image, class: "hidden-field"
-            -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image" }
-            -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image" }
-            -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image" }
-            -#     %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image" }
         .new-item-content__item
           .new-item-content__item__box
             .new-item-content__item__title
@@ -80,20 +69,12 @@
               = f.collection_select :child_category_id, @children, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "child_category" }
             .grand_category
               = f.collection_select :grandchild_category_id, @grandchildren, :id, :name, { prompt: "---" }, { class: "category_select-box", id: "grandchild_category" }
-          -# 追加機能で実装予定
-          -# .new-item-content__thedetails__box
-          -#   .new-item-content__item__box__title
-          -#     ブランド
-          -#   .required
-          -#     必須
-          -# = f.text_field :name, placeholder: "選択してください", class: 'new-item-content__thedetails__category'
           .new-item-content__thedetails__box
             .new-item-content__item__box__title
               商品の状態
             .required
               必須
           = f.select :status, Item.item_statuses, {prompt: "選択してください"}, {class: 'new-item-content__thedetails__status'}
-          -# = f.text_field :status, placeholder: "選択してください", class: 'new-item-content__thedetails__status'
         .new-item-content__delivery
           .new-item-content__delivery__title
             配送について
@@ -108,16 +89,13 @@
               発送元の地域
             .required
               必須
-          -# = f.fields_for :prefecture do |d|
           = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください"
-          -# = f.text_field :name, placeholder: "選択してください", class: 'new-item-content__delivery__prefecture'
           .new-item-content__delivery__box
             .new-item-content__delivery__box__title
               発送までの日数
             .required
               必須
           = f.select :preday, Item.delivery_days, {prompt: "選択してください"}, {class: 'new-item-content__delivery__preday'}
-          -# = f.text_field :name, placeholder: "選択してください", class: 'new-item-content__delivery__preday'
         .new-item-content__price
           .new-item-content__price__title
             価格
