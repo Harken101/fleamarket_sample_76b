@@ -12,8 +12,8 @@
 |furigana_first_name|string|null: false|
 ### Association
 - has_many :items dependent: :destroy
-- has_many :addresses, dependent: :destroy
-- has_many :cards, dependent: :destroy
+- has_one :address, dependent: :destroy
+- has_one :cards, dependent: :destroy
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -54,6 +54,8 @@ belongs_to :user
 |postage_typ_id|integer|null: false, foreign_key: true|
 |prefecture|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
+|saler_id|integer|null: false|
+
 ### Association
 - belongs_to :user
 - belongs_to :category
@@ -82,12 +84,3 @@ belongs_to :user
 |item_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :item
-
-## sellarsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|buyer_id|integer|null: false|
-|item_id|integer|null: false, foreign_key: true|
-### Association
-- belongs_to :item
-
