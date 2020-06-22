@@ -8,6 +8,10 @@ class Item < ApplicationRecord
   validates :name, presence: true, length: {maximum: 40}
   validates :description, presence: true, length: {maximum: 1000}
   validates :price, length: {maximum: 10}
+  validates :prefecture_id, presence: true, numericality: { less_than_or_equal_to: 47 }
+  validates :category_id, presence: true
+  validates :child_category_id, presence: true
+  validates :grandchild_category_id, presence: true, :numericality => { :greater_than_or_equal_to => 1} 
   
   #アソシエーションを組んであるモデルに対してのバリデーションを組む
   validates_associated :images
@@ -16,7 +20,6 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
-  validates :prefecture_id, presence: true, numericality: { less_than_or_equal_to: 47 }
 
   enum delivery_charge: {
     "送料込み（出品者負担)":0, "着払い（購入者負担)":1

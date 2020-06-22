@@ -23,3 +23,8 @@ ja:
         city: 市町村
         street: 番地
         tell:  電話番号、もしくは携帯電話番号
+
+      item:
+        category_id: カテゴリー
+        child_category_id: カテゴリー
+        grandchild_category_id: カテゴリー
