@@ -8,7 +8,6 @@ class Address < ApplicationRecord
   validates :prefecture, presence: true, numericality: { less_than_or_equal_to: 47 } 
   validates :city,               presence: true
   validates :street,             presence: true
-  validates :tell, format: { with: /\A\d{10,11}\z/}
-
+  validates :tell,presence: false, format: { with: /\A\d{10,11}\z/}, allow_blank: true
   belongs_to :user, optional: true
 end
